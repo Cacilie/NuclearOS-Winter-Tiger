@@ -13,8 +13,15 @@
     </head>
 
     <style type="text/css">
+    #bg{
+      position: absolute;
+      width: 100%;
+
+      z-index: -1;
+      -webkit-filter: blur(4px);
+    }
       body
-      {
+      {/*
         width: 100%;
         /*height: 1000000000px;
         overflow-x: hidden;
@@ -23,30 +30,28 @@
         background-size: cover;
 
         transition: background 0.5s;
-*/
+
 
 
         background-image: url(source/bg.jpg);
 
-        /* Nos aseguramos que la imagen de fondo este centrada vertical y
-          horizontalmente en todo momento */
+
         background-position: center center;
 
-        /* La imagen de fondo no se repite */
+
         background-repeat: no-repeat;
 
-        /* La imagen de fondo está fija en el viewport, de modo que no se mueva cuando
-           la altura del contenido supere la altura de la imagen. */
+
         background-attachment: fixed;
 
-        /* La imagen de fondo se reescala cuando se cambia el ancho de ventana
-           del navegador */
+
         background-size: cover;
 
-        /* Fijamos un color de fondo para que se muestre mientras se está
-          cargando la imagen de fondo o si hay problemas para cargarla  */
+
         background-color: #464646;
+
         transition: background 0.5s;
+        */
        }
 
       h5
@@ -56,6 +61,7 @@
     </style>
 
     <body ng-app="loginapp" ng-controller="loginController" >
+      <img src="source/bg.jpg" id="bg" alt="" />
       <div class="container">
         <br><br><br><br><br><br><br><br><br>
         <div class="row" id="columna">
@@ -135,8 +141,11 @@
         }*/
 
         $(document).ready(function(){
+          
           $("#campo_1").focus(function(){
             var filterVal = 'blur(4px)';
+            $("#bg").css("-webkit-filter","none");
+
             $('main').css('background-image', 'url(source/bg.jpg)');
             document.getElementById("a1").classList.add('hide');
             document.getElementById("b1").classList.remove('hide');
@@ -149,6 +158,7 @@
             document.getElementById("enviar").classList.remove('disabled');
           });
           $("#campo_2").focus(function(){
+            $("#bg").css("-webkit-filter","none");
             $('main').css('background-image', 'url(source/bg.jpg)');
             document.getElementById("a1").classList.add('hide');
             document.getElementById("b1").classList.remove('hide');
@@ -158,6 +168,7 @@
             document.getElementById('oculto').style.display = 'block';
           });
           $("#campo_3").focus(function(){
+            $("#bg").css("-webkit-filter","none");
             $('main').css('background-image', 'url(source/bg.jpg)');
             document.getElementById("a1").classList.add('hide');
             document.getElementById("b1").classList.remove('hide');
