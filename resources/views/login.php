@@ -8,6 +8,8 @@
         <link type="text/css" rel="stylesheet" href="materialize/css/estilos.css"  media="screen,projection"/>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <script src="scripts/angular/angular.min.js" charset="utf-8"></script>
+      <script src="scripts/angular/modules/login-module.js" charset="utf-8"></script>
     </head>
 
     <style type="text/css">
@@ -25,7 +27,7 @@
       }
     </style>
 
-    <main>
+    <main ng-app="loginapp" ng-controller="loginController">
       <div class="container">
         <br><br><br><br><br><br><br><br><br>
         <div class="row" id="columna">
@@ -42,9 +44,10 @@
               </div>
             </div>
             <div class="col s4 hide" id="b1">
-              
+
             </div>
 
+<!--Este es el bueno-->
             <div class="col s4">
               <div align="center">
                 <img id="imagen" width="45%" class="responsive-img circle z-depth-5" src="source/user2.jpg">
@@ -53,11 +56,11 @@
               <div class="col s1"></div>
               <div class="input-field col s10">
                 <i class="material-icons prefix">vpn_key</i>
-                <input id="campo_2" type="password" class="validate">
+                <input id="campo_2" type="password" class="validate" ng-model="userToLog.password">
                 <label for="icon_prefix">Contraseña</label>
                 <div id="oculto" align="center" style="display: none;">
                   <br><br>
-                  <button id="enviar" class="btn waves-effect waves-teal black disabled" type="submit" name="action">Entrar
+                  <button id="enviar" class="btn waves-effect waves-teal black disabled" ng-click="submitLogin()" name="action">Entrar
                   <i class="material-icons right">send</i>
                   </button>
                 </div>
@@ -77,13 +80,13 @@
                </div>
             </div>
             <div class="col s4 hide" id="b3">
-              
+
             </div>
           </div>
 
       </div>
       </main>
-      
+
       <footer>
       </footer>
 
@@ -153,9 +156,9 @@
               document.getElementById('imagen').src = "source/user2.jpg";
               document.getElementById('oculto').style.display = 'none';
             }
-          });          
+          });
         });
-        
+
 
 
         function desopacar(x,y)

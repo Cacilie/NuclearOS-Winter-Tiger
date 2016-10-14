@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-10-2016 a las 08:33:56
+-- Tiempo de generación: 14-10-2016 a las 04:51:42
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.5.38
 
@@ -60,6 +60,28 @@ INSERT INTO `carpetas` (`id`, `nombre`) VALUES
 (2, 'Tareas'),
 (3, 'carpeta');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` bigint(10) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `level` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `name`, `password`, `level`) VALUES
+(1, 'usuario1', 'sudosu', 0),
+(2, 'usuario2', 'dos', 1),
+(3, 'usuario3', 'tres', 3);
+
 --
 -- Índices para tablas volcadas
 --
@@ -77,6 +99,12 @@ ALTER TABLE `carpetas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -90,6 +118,11 @@ ALTER TABLE `archivos`
 --
 ALTER TABLE `carpetas`
   MODIFY `id` bigint(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
