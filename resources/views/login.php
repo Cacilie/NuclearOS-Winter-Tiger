@@ -13,11 +13,39 @@
     </head>
 
     <style type="text/css">
-      main
+      body
       {
-        background-image: url("source/backg2-2.jpg");
+        width: 100%;
+        /*height: 1000000000px;
+        overflow-x: hidden;
+        /*
+        background-image: url("source/bg.jpg");
+        background-size: cover;
+
+        transition: background 0.5s;
+*/
+
+
+        background-image: url(source/bg.jpg);
+
+        /* Nos aseguramos que la imagen de fondo este centrada vertical y
+          horizontalmente en todo momento */
+        background-position: center center;
+
+        /* La imagen de fondo no se repite */
         background-repeat: no-repeat;
-        background-position: center;
+
+        /* La imagen de fondo está fija en el viewport, de modo que no se mueva cuando
+           la altura del contenido supere la altura de la imagen. */
+        background-attachment: fixed;
+
+        /* La imagen de fondo se reescala cuando se cambia el ancho de ventana
+           del navegador */
+        background-size: cover;
+
+        /* Fijamos un color de fondo para que se muestre mientras se está
+          cargando la imagen de fondo o si hay problemas para cargarla  */
+        background-color: #464646;
         transition: background 0.5s;
        }
 
@@ -27,7 +55,7 @@
       }
     </style>
 
-    <main ng-app="loginapp" ng-controller="loginController">
+    <body ng-app="loginapp" ng-controller="loginController" >
       <div class="container">
         <br><br><br><br><br><br><br><br><br>
         <div class="row" id="columna">
@@ -85,7 +113,7 @@
           </div>
 
       </div>
-      </main>
+    </body>
 
       <footer>
       </footer>
@@ -109,7 +137,7 @@
         $(document).ready(function(){
           $("#campo_1").focus(function(){
             var filterVal = 'blur(4px)';
-            $('main').css('background-image', 'url(source/backg2.jpg)');
+            $('main').css('background-image', 'url(source/bg.jpg)');
             document.getElementById("a1").classList.add('hide');
             document.getElementById("b1").classList.remove('hide');
             document.getElementById("a3").classList.add('hide');
@@ -121,7 +149,7 @@
             document.getElementById("enviar").classList.remove('disabled');
           });
           $("#campo_2").focus(function(){
-            $('main').css('background-image', 'url(source/backg2.jpg)');
+            $('main').css('background-image', 'url(source/bg.jpg)');
             document.getElementById("a1").classList.add('hide');
             document.getElementById("b1").classList.remove('hide');
             document.getElementById("a3").classList.add('hide');
@@ -130,7 +158,7 @@
             document.getElementById('oculto').style.display = 'block';
           });
           $("#campo_3").focus(function(){
-            $('main').css('background-image', 'url(source/backg2.jpg)');
+            $('main').css('background-image', 'url(source/bg.jpg)');
             document.getElementById("a1").classList.add('hide');
             document.getElementById("b1").classList.remove('hide');
             document.getElementById("a3").classList.add('hide');
@@ -147,7 +175,7 @@
             if(cadena=="")
             {
               document.getElementById("enviar").classList.add('disabled');
-              $('main').css('background-image', 'url(source/backg2-2.jpg)');
+              $('main').css('background-image', 'url(source/bg.jpg)');
               document.getElementById("b1").classList.add('hide');
               document.getElementById("a1").classList.remove('hide');
               document.getElementById("b3").classList.add('hide');
