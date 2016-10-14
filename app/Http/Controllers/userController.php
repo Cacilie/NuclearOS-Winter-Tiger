@@ -16,6 +16,7 @@ class userController extends Controller
     $query = app('db')->select("SELECT * FROM usuarios WHERE name = '$user' AND password = '$password' ");
     if ($query != null) {
       $_SESSION['user'] = $query;
+
       return 0;
     }
     else {

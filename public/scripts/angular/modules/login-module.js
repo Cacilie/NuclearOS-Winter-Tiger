@@ -9,7 +9,7 @@ loginapp.controller('loginController', ['$scope' , '$http', function($scope, $ht
     .success(function(data){
 
       if (data == 0) {
-        alert("Bienvenido")
+        window.location = '/desktop'
       }
       else {
         alert("Error, contraseña incorrecta")
@@ -18,3 +18,5 @@ loginapp.controller('loginController', ['$scope' , '$http', function($scope, $ht
     })
   }
 }]);
+
+
