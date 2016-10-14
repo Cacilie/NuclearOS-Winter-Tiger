@@ -47,6 +47,3 @@ $app->post('/getFilesByFolder','filesController@getFilesByFolder');
 
 
 
-$app->get('/desktop',function(){
-  return view('desktop');
-});
