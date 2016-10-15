@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-  <html>
+  <html >
     <head>
       <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -7,6 +7,8 @@
       <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="materialize/css/estilos.css"  media="screen,projection"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script src="scripts/angular/angular.min.js" charset="utf-8"></script>
+        <script src="scripts/angular/modules/desktop-module.js" charset="utf-8"></script>
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -54,25 +56,25 @@
               <li><a class="waves-effect white-text" href="#!"><i class="material-icons white-text">call_to_action</i>Terminal</a></li>
 
          </div>
-  <footer class="page-footer pink darken-4">
+  <footer class="page-footer pink darken-4" ng-app="desktopapp" ng-controller="deskController">
         <div class="container">
           <div class="row">
             <div class="col l12 s12">
               <center><h5 class="white-text">wOS Apps</h5></center>
               <table>
                 <tr>
-                  <td><center><img src="source/iconos/chrome.png" alt=""></center></td>
-                  <td><center><img src="source/iconos/traductor.png" alt=""></center></td>
-                  <td><center><img src="source/iconos/gmail.png" alt=""></center></td>
+                  <td><center><img src="source/iconos/chrome.png" alt="" ng-click="abrirChrome()"></center></td>
+                  <td><center><img src="source/iconos/traductor.png" alt="" ng-click="abrirTraductor()"></center></td>
+                  <td><center><img src="source/iconos/gmail.png" alt="" ng-click="abrirGmail()"></center></td>
                 </tr>
                 <tr>
-                  <td><center><img src="source/iconos/facebook.png" alt=""></center></td>
-                  <td><center><img src="source/iconos/twitter.png" alt=""></center></td>
-                  <td><center><img src="source/iconos/instagram.png" alt=""></center></td>
+                  <td><center><img src="source/iconos/facebook.png" alt="" ng-click="abrirFacebook()"></center></td>
+                  <td><center><img src="source/iconos/twitter.png" alt="" ng-click="abrirTwitter()"></center></td>
+                  <td><center><img src="source/iconos/instagram.png" alt="" ng-click="abrirInstagram()"></center></td>
                 </tr>
                 <tr>
-                  <td><center><img src="source/iconos/spotify.png" alt=""></center></td>
-                  <td><center><img src="source/iconos/outlook.png" alt=""></center></td>
+                  <td><center><img src="source/iconos/spotify.png" alt="" ng-click="abrirSpotify()"></center></td>
+                  <td><center><img src="source/iconos/outlook.png" alt="" ng-click="abrirOutlook()"></center></td>
                   <td><img src="" alt=""></td>
                 </tr>
               </table>
@@ -85,9 +87,10 @@
           © 2016 D'tim
           </div>
         </div>
+        <li  ><a class="waves-effect waves-light btn  pink darken-3 white-text" ng-click="cambiarUsuario()"><i class="material-icons white-text" >power_settings_new</i>Cambiar Usuario</a></li>
       </footer>
 
-<li><a class="waves-effect waves-light btn  pink darken-3 white-text"><i class="material-icons white-text">power_settings_new</i>Cambiar Usuario</a></li>
+
 
 
      </ul>
