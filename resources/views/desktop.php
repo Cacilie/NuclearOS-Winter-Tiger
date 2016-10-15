@@ -7,7 +7,7 @@
       <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="materialize/css/estilos.css"  media="screen,projection"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
         <script src="scripts/angular/angular.min.js" charset="utf-8"></script>
         <script src="scripts/angular/modules/desktop-module.js" charset="utf-8"></script>
 
@@ -38,7 +38,7 @@
                 </div>
               </nav>
              </li>
-             <li><a class="waves-effect white-text" href="#!"><i class="material-icons white-text">insert_drive_file</i>Archivos</a></li>
+             <li><a class="waves-effect white-text modal-trigger" href="#modal1"><i class="material-icons white-text">insert_drive_file</i>Archivos</a></li>
              <li class="no-padding">
        <ul class="collapsible collapsible-accordion">
          <li>
@@ -64,7 +64,7 @@
               <center><h5 class="white-text">wOS Apps</h5></center>
               <table align="center">
                 <tr>
-                  <td><center><img class="tooltipped" data-position="top" data-delay="100" data-tooltip="Chrome" id="chrome" src="source/iconos/chrome.png" alt="" ng-click="abrirChrome()"></center></td>
+                  <td><center><img class="tooltipped" data-position="top" data-delay="100" data-tooltip="Google" id="chrome" src="source/iconos/chrome.png" alt="" ng-click="abrirChrome()"></center></td>
                   <td><center><img class="tooltipped" data-position="top" data-delay="100" data-tooltip="Traductor" id="translate" src="source/iconos/traductor.png" alt="" ng-click="abrirTraductor()"></center></td>
                   <td><center><img class="tooltipped" data-position="top" data-delay="100" data-tooltip="Gmail" id="gmail" src="source/iconos/gmail.png" alt="" ng-click="abrirGmail()"></center></td>
                 </tr>
@@ -93,10 +93,14 @@
 
 
 
-
      </ul>
       <body>
         <style media="screen">
+        #draggable
+        {
+          z-index: 10;
+        }
+
         body {
           /* Ubicación de la imagen */
  background-image: url(source/bgdesktop.jpg);
@@ -120,18 +124,43 @@
    cargando la imagen de fondo o si hay problemas para cargarla  */
  background-color: #464646;
           }
+
+          #modal1 {
+  bottom: : auto !important;
+  right: auto !important;
+  top: 15%;
+  left:32%;
+}
+
         </style>
 
 
-
+<!-- Modal Structure -->
+<div id="modal1" class="modal modal-fixed-footer ">
+  <div class="modal-header">
+<div class="modal-content">
+<h4>Modal Header</h4>
+<p>A bunch of text</p>
+</div>
+</div>
+<div class="modal-footer">
+<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+</div>
+</div>
 
       </body>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
       <script>
+      $('.modal-trigger').leanModal({
+          opacity: 0 // Opacity of modal background
+        }
+      );
+
       $( function() {
-        $( "#draggable" ).draggable();
+      $( "#modal1" ).draggable({handle: ".modal-header"});
       } );
       $("#chrome").click(function(e){
       $("#chrome").fadeOut(250);
