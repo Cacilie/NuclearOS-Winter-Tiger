@@ -6,8 +6,7 @@
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="materialize/css/estilos.css"  media="screen,projection"/>
-        <script type="text/javascript" src="scripts/jquery.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -59,8 +58,24 @@
         <div class="container">
           <div class="row">
             <div class="col l12 s12">
-              <h5 class="white-text">W-OS</h5>
-              <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure   laborum.</p>
+              <center><h5 class="white-text">wOS Apps</h5></center>
+              <table>
+                <tr>
+                  <td><center><img src="source/iconos/chrome.png" alt=""></center></td>
+                  <td><center><img src="source/iconos/traductor.png" alt=""></center></td>
+                  <td><center><img src="source/iconos/gmail.png" alt=""></center></td>
+                </tr>
+                <tr>
+                  <td><center><img src="source/iconos/facebook.png" alt=""></center></td>
+                  <td><center><img src="source/iconos/twitter.png" alt=""></center></td>
+                  <td><center><img src="source/iconos/instagram.png" alt=""></center></td>
+                </tr>
+                <tr>
+                  <td><center><img src="source/iconos/spotify.png" alt=""></center></td>
+                  <td><center><img src="source/iconos/outlook.png" alt=""></center></td>
+                  <td><img src="" alt=""></td>
+                </tr>
+              </table>
             </div>
 
           </div>
