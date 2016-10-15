@@ -31,3 +31,5 @@
   min-height: 100vh;
   flex-direction: column;
 }
+
+td { cursor: pointer; cursor: hand; }
