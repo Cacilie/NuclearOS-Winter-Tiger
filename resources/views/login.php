@@ -145,8 +145,6 @@
           $("#campo_1").focus(function(){
             var filterVal = 'blur(4px)';
             $("#bg").css("-webkit-filter","none");
-
-            $('main').css('background-image', 'url(source/bg.jpg)');
             document.getElementById("a1").classList.add('hide');
             document.getElementById("b1").classList.remove('hide');
             document.getElementById("a3").classList.add('hide');
@@ -159,7 +157,6 @@
           });
           $("#campo_2").focus(function(){
             $("#bg").css("-webkit-filter","none");
-            $('main').css('background-image', 'url(source/bg.jpg)');
             document.getElementById("a1").classList.add('hide');
             document.getElementById("b1").classList.remove('hide');
             document.getElementById("a3").classList.add('hide');
@@ -169,7 +166,6 @@
           });
           $("#campo_3").focus(function(){
             $("#bg").css("-webkit-filter","none");
-            $('main').css('background-image', 'url(source/bg.jpg)');
             document.getElementById("a1").classList.add('hide');
             document.getElementById("b1").classList.remove('hide');
             document.getElementById("a3").classList.add('hide');
@@ -185,8 +181,9 @@
             var cadena = document.getElementById("campo_2").value;
             if(cadena=="")
             {
+              var filterVal = 'blur(4px)';
+              $("#bg").css("-webkit-filter", filterVal);
               document.getElementById("enviar").classList.add('disabled');
-              $('main').css('background-image', 'url(source/bg.jpg)');
               document.getElementById("b1").classList.add('hide');
               document.getElementById("a1").classList.remove('hide');
               document.getElementById("b3").classList.add('hide');
