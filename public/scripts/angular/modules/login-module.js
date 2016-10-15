@@ -12,11 +12,9 @@ loginapp.controller('loginController', ['$scope' , '$http', function($scope, $ht
         window.location = '/desktop'
       }
       else {
-        alert("Error, contraseña incorrecta")
+        Materialize.toast('Contraseña Incorrecta :(', 4250)
       }
 
     })
   }
 }]);
-
-
