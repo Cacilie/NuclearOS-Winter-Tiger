@@ -21,6 +21,8 @@ $app->get('/carpeta={id}','filesController@gotoFolder');
 $app->post('/createNewFile','filesController@createNewFile');
 $app->post('/getFilesByFolder','filesController@getFilesByFolder');
 $app->post('/login','userController@login');
+$app->post('/deleteFolder','filesController@deleteFolder');
+$app->post('/deleteFile','filesController@deleteFile');
 
 
 $app->get('desktop',function(){

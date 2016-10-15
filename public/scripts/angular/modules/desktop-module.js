@@ -60,7 +60,8 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     })
     .error(function(err){
       return err;
-    })},1000);
+    })
+  },1000);
   }
   $scope.autorun();
 
@@ -110,9 +111,39 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
       }
       else {
         alert("Archivo creado exitosamente")
+        $scope.getFilesByFolder(0);
       }
       $scope.nuevoArchivo = {nombre:''}
     })
+  }
+
+  $scope.folderA_Eliminar = {id:''}
+  $scope.eliminarFolder = function(id)
+  {
+    $scope.folderA_Eliminar.id = id;
+    $http.post('/deleteFolder',$scope.folderA_Eliminar)
+    .success(function(data){
+      alert("Se trasladó a la papelera (Cambiarlo por toast :P)")
+      $scope.getFilesByFolder(0);
+
+    })
+    .error(function(err){
+      console.log(Err);
+    })
+  }
+
+  $scope.fileA_Eliminar = {id : ''}
+  $scope.eliminarFile = function(id)
+  {
+    $scope.fileA_Eliminar.id = id;
+    $http.post('/deleteFile',$scope.fileA_Eliminar)
+    .success(function(data){
+      alert("Se trasladó a la papelera (Cambiarlo por toast :P)")
+      $scope.getFilesByFolder(0);
+    })
+    .error(function() {
+      console.log("Error");
+    });
   }
 
 }]);

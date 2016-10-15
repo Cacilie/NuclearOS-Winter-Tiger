@@ -126,13 +126,13 @@
           }
 
           #modal1 {
-  bottom: : auto !important;
+  bottom:  auto !important;
   right: auto !important;
   top: 15%;
   left:32%;
 }
 
-li.collection-item { 
+li.collection-item {
     cursor: pointer;
     cursor: hand;
 }
@@ -155,10 +155,10 @@ i.icon-pink {
     <div class="modal-content">
       <div class="row valign-wrapper">
         <div class="col 2">
-          <img src="source/iconos/cardinal.png" width="35px">
+          <img src="source/iconos/cardinal1.png" width="35px">
         </div>
         <div class="col 10 ">
-          <h5>Cardinal</h5>      
+          <h5>Cardinal</h5>
         </div>
       </div>
     <div class="row">
@@ -171,12 +171,12 @@ i.icon-pink {
           <div class="col 2 valign">
             <a class="btn-floating btn-small waves-effect waves-light green darken-4" ng-click="crearCarpeta()"><i class="material-icons">add</i></a>
           </div>
-        </div>  
+        </div>
         <ul class="collection">
-          <li class="collection-item" ng-repeat="folder in folders" ng-click="getFilesByFolder(folder.id)">
-            <i class="material-icons icon-yellow">folder</i>
-            <span class="title" style="margin-left: 10px">{{folder.nombre}}</span>
-            <a href="#!" class="secondary-content"><i class="material-icons icon-red">delete</i></a>
+          <li class="collection-item" ng-repeat="folder in folders" >
+            <i class="material-icons icon-yellow"  ng-click="getFilesByFolder(folder.id)">folder</i>
+            <span class="title" style="margin-left: 10px" ng-click="getFilesByFolder(folder.id)">{{folder.nombre}}</span>
+            <a href="#!" class="secondary-content" ng-click="eliminarFolder(folder.id)"><i class="material-icons icon-red">delete</i></a>
           </li>
         </ul>
       </div>
@@ -194,7 +194,7 @@ i.icon-pink {
           <li class="collection-item" ng-repeat="file in files">
             <i class="material-icons icon-pink">insert_drive_file</i>
             <span class="title" style="margin-left: 10px">{{file.nombre}}</span>
-            <a href="#!" class="secondary-content"><i class="material-icons icon-red">close</i></a>
+            <a href="#!" class="secondary-content" ng-click="eliminarFile(file.id)"><i class="material-icons icon-red" >close</i></a>
           </li>
         </ul>
       </div>
