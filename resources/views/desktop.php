@@ -7,6 +7,7 @@
       <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="materialize/css/estilos.css"  media="screen,projection"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="scripts/angular/angular.min.js" charset="utf-8"></script>
         <script src="scripts/angular/modules/desktop-module.js" charset="utf-8"></script>
 
@@ -61,20 +62,20 @@
           <div class="row">
             <div class="col l12 s12">
               <center><h5 class="white-text">wOS Apps</h5></center>
-              <table>
+              <table align="center">
                 <tr>
-                  <td><center><img src="source/iconos/chrome.png" alt="" ng-click="abrirChrome()"></center></td>
-                  <td><center><img src="source/iconos/traductor.png" alt="" ng-click="abrirTraductor()"></center></td>
-                  <td><center><img src="source/iconos/gmail.png" alt="" ng-click="abrirGmail()"></center></td>
+                  <td><center><img class="tooltipped" data-position="top" data-delay="100" data-tooltip="Chrome" id="chrome" src="source/iconos/chrome.png" alt="" ng-click="abrirChrome()"></center></td>
+                  <td><center><img class="tooltipped" data-position="top" data-delay="100" data-tooltip="Traductor" id="translate" src="source/iconos/traductor.png" alt="" ng-click="abrirTraductor()"></center></td>
+                  <td><center><img class="tooltipped" data-position="top" data-delay="100" data-tooltip="Gmail" id="gmail" src="source/iconos/gmail.png" alt="" ng-click="abrirGmail()"></center></td>
                 </tr>
                 <tr>
-                  <td><center><img src="source/iconos/facebook.png" alt="" ng-click="abrirFacebook()"></center></td>
-                  <td><center><img src="source/iconos/twitter.png" alt="" ng-click="abrirTwitter()"></center></td>
-                  <td><center><img src="source/iconos/instagram.png" alt="" ng-click="abrirInstagram()"></center></td>
+                  <td><center><img class="tooltipped" data-position="top" data-delay="100" data-tooltip="Facebook" id="fb" src="source/iconos/facebook.png" alt="" ng-click="abrirFacebook()"></center></td>
+                  <td><center><img class="tooltipped" data-position="top" data-delay="100" data-tooltip="Twitter" id="twitter" src="source/iconos/twitter.png" alt="" ng-click="abrirTwitter()"></center></td>
+                  <td><center><img class="tooltipped" data-position="top" data-delay="100" data-tooltip="Instagram" id="instagram" src="source/iconos/instagram.png" alt="" ng-click="abrirInstagram()"></center></td>
                 </tr>
                 <tr>
-                  <td><center><img src="source/iconos/spotify.png" alt="" ng-click="abrirSpotify()"></center></td>
-                  <td><center><img src="source/iconos/outlook.png" alt="" ng-click="abrirOutlook()"></center></td>
+                  <td><center><img class="tooltipped" data-position="top" data-delay="100" data-tooltip="Spotify" id="spotify" src="source/iconos/spotify.png" alt="" ng-click="abrirSpotify()"></center></td>
+                  <td><center><img class="tooltipped" data-position="top" data-delay="100" data-tooltip="Outlook" id="outlook" src="source/iconos/outlook.png" alt="" ng-click="abrirOutlook()"></center></td>
                   <td><img src="" alt=""></td>
                 </tr>
               </table>
@@ -122,11 +123,48 @@
         </style>
 
 
+
+
       </body>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
       <script>
+      $( function() {
+        $( "#draggable" ).draggable();
+      } );
+      $("#chrome").click(function(e){
+      $("#chrome").fadeOut(250);
+      $("#chrome").fadeIn(250);
+      });
+      $("#translate").click(function(e){
+      $("#translate").fadeOut(250);
+      $("#translate").fadeIn(250);
+      });
+      $("#gmail").click(function(e){
+      $("#gmail").fadeOut(250);
+      $("#gmail").fadeIn(250);
+      });
+      $("#fb").click(function(e){
+      $("#fb").fadeOut(250);
+      $("#fb").fadeIn(250);
+      });
+      $("#twitter").click(function(e){
+      $("#twitter").fadeOut(250);
+      $("#twitter").fadeIn(250);
+      });
+      $("#instagram").click(function(e){
+      $("#instagram").fadeOut(250);
+      $("#instagram").fadeIn(250);
+      });
+      $("#spotify").click(function(e){
+      $("#spotify").fadeOut(250);
+      $("#spotify").fadeIn(250);
+      });
+      $("#outlook").click(function(e){
+      $("#outlook").fadeOut(250);
+      $("#outlook").fadeIn(250);
+      });
       $('.button-collapse').sideNav({
     menuWidth: 400, // Default is 240
     edge: 'right', // Choose the horizontal origin
