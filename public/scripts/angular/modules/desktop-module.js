@@ -46,4 +46,73 @@ desktopapp.controller('deskController', ['$scope', '$http', function($scope,$htt
     console.log("Entre");
     window.location = "/"
   }
-}])
+}]);
+
+desktopapp.controller('modalController',['$scope','$http',function($scope,$http){
+  $scope.autorun = function(){
+
+    setInterval(function(){
+    $http.post('/getMyFolders',{})
+    .success(function(data){
+
+      $scope.folders = data;
+      //console.log(data);
+    })
+    .error(function(err){
+      return err;
+    })},1000);
+  }
+  $scope.autorun();
+
+
+  $scope.getFilesByFolder = function(id)
+  {
+    $(".form_archivo").show();
+    $scope.file = {id:id}
+    $http.post('/getFilesByFolder',$scope.file)
+    .success(function(data){
+      $scope.files = data;
+      //console.log(data);
+    })
+    .error(function() {
+      console.log(1);
+    });
+  }
+
+  $scope.nuevaCarpeta = {nombre:''}
+  $scope.crearCarpeta = function()
+  {
+    $http.post('/createNewFolder',$scope.nuevaCarpeta)
+    .success(function(data){
+
+      if(data == 0)
+      {
+        alert("Carpeta creada");
+      }else{
+        alert("La carpeta ya existe");
+      }
+
+      $scope.nuevaCarpeta = {nombre:''};
+    })
+    .error(function(e){
+      return err;
+    })
+  }
+
+  $scope.nuevoArchivo = {nombre:''}
+  $scope.crearArchivo= function()
+  {
+    $http.post('/createNewFile',$scope.nuevoArchivo)
+    .success(function(data){
+      if(data == 1)
+      {
+        alert("El archivo ya existe")
+      }
+      else {
+        alert("Archivo creado exitosamente")
+      }
+      $scope.nuevoArchivo = {nombre:''}
+    })
+  }
+
+}]);

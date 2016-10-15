@@ -49,10 +49,11 @@ class filesController extends Controller
       }
     }
 
-    public function getFilesByFolder()
+    public function getFilesByFolder(Request $r)
     {
       session_start();
-      $id = $_SESSION["currentFolder"];
+      $id = $r->input('id');
+      $_SESSION["currentFolder"] = $id;
       $query = app('db')->select("SELECT * FROM archivos WHERE carpetaid = {$id}");
       return $query;
     }

@@ -94,7 +94,7 @@
 
 
      </ul>
-      <body>
+      <body ng-app="desktopapp" ng-controller="modalController">
         <style media="screen">
         #draggable
         {
@@ -136,15 +136,43 @@
 
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal modal-fixed-footer ">
+<div id="modal1" class="modal modal-fixed-footer "  >
   <div class="modal-header">
 <div class="modal-content">
-<h4>Modal Header</h4>
-<p>A bunch of text</p>
+<h4>Cardinal</h4>
+
+  <div class="row">
+
+    <div class="col 3">
+      <h6>Carpetas</h6>
+      <p>
+        <input type="text" name="nombre_carpeta" ng-model="nuevaCarpeta.nombre" placeholder="nueva carpeta">
+        <button ng-click="crearCarpeta()" name="button">Crear</button>
+      </p>
+      <li>
+        <ul ng-repeat="folder in folders"><a href="#" ng-click="getFilesByFolder(folder.id)">{{folder.nombre}}</a></ul>
+      </li>
+    </div>
+    <div class="col 3 offset-s6">
+      <h6>Archivos</h6>
+      <p>
+        <input type="text" name="nombre_archivo" class="form_archivo" ng-model="nuevoArchivo.nombre" placeholder="nuevo archivo" style="display:none">
+        <button ng-click="crearArchivo()" class="form_archivo" style="display:none" name="button">Crear</button>
+      </p>
+      <li>
+        <ul  ng-repeat="file in files">
+          <a href="#">{{file.nombre}} </a>
+
+        </ul>
+      </li>
+    </div>
+  </div>
+</p>
 </div>
+
 </div>
 <div class="modal-footer">
-<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
 </div>
 </div>
 
