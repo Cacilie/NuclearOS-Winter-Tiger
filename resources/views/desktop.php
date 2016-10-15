@@ -132,44 +132,74 @@
   left:32%;
 }
 
+li.collection-item { 
+    cursor: pointer;
+    cursor: hand;
+}
+
+i.icon-yellow {
+    color: #D1D126;
+}
+i.icon-red {
+    color: #c62828;
+}
+i.icon-pink {
+    color: #880e4f;
+}
         </style>
 
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal modal-fixed-footer "  >
+<div id="modal1" class="modal modal-fixed-footer">
   <div class="modal-header">
-<div class="modal-content">
-<h4>Cardinal</h4>
-
-  <div class="row">
-
-    <div class="col 3">
-      <h6>Carpetas</h6>
-      <p>
-        <input type="text" name="nombre_carpeta" ng-model="nuevaCarpeta.nombre" placeholder="nueva carpeta">
-        <button ng-click="crearCarpeta()" name="button">Crear</button>
-      </p>
-      <li>
-        <ul ng-repeat="folder in folders"><a href="#" ng-click="getFilesByFolder(folder.id)">{{folder.nombre}}</a></ul>
-      </li>
-    </div>
-    <div class="col 3 offset-s6">
-      <h6>Archivos</h6>
-      <p>
-        <input type="text" name="nombre_archivo" class="form_archivo" ng-model="nuevoArchivo.nombre" placeholder="nuevo archivo" style="display:none">
-        <button ng-click="crearArchivo()" class="form_archivo" style="display:none" name="button">Crear</button>
-      </p>
-      <li>
-        <ul  ng-repeat="file in files">
-          <a href="#">{{file.nombre}} </a>
-
+    <div class="modal-content">
+      <div class="row valign-wrapper">
+        <div class="col 2">
+          <img src="source/iconos/cardinal.png" width="35px">
+        </div>
+        <div class="col 10 ">
+          <h5>Cardinal</h5>      
+        </div>
+      </div>
+    <div class="row">
+      <div class="col 4">
+        <h6>Carpetas</h6>
+        <div class="row valign-wrapper">
+          <div class="col 10 valign">
+          <input type="text" name="nombre_carpeta" ng-model="nuevaCarpeta.nombre" placeholder="Nueva Carpeta">
+          </div>
+          <div class="col 2 valign">
+            <a class="btn-floating btn-small waves-effect waves-light green darken-4" ng-click="crearCarpeta()"><i class="material-icons">add</i></a>
+          </div>
+        </div>  
+        <ul class="collection">
+          <li class="collection-item" ng-repeat="folder in folders" ng-click="getFilesByFolder(folder.id)">
+            <i class="material-icons icon-yellow">folder</i>
+            <span class="title" style="margin-left: 10px">{{folder.nombre}}</span>
+            <a href="#!" class="secondary-content"><i class="material-icons icon-red">delete</i></a>
+          </li>
         </ul>
-      </li>
+      </div>
+      <div class="col 6 offset-s2">
+        <h6>Archivos</h6>
+        <div class="row valign-wrapper form_archivo" style="display: none;">
+          <div class="col 10 valign">
+            <input type="text" name="nombre_archivo" class="form_archivo" ng-model="nuevoArchivo.nombre" placeholder="Nuevo Archivo">
+          </div>
+          <div class="col 2 valign">
+            <a class="btn-floating btn-small waves-effect waves-light green darken-4" ng-click="crearArchivo()"><i class="material-icons">add</i></a>
+          </div>
+        </div>
+        <ul class="collection form_archivo" style="display: none;">
+          <li class="collection-item" ng-repeat="file in files">
+            <i class="material-icons icon-pink">insert_drive_file</i>
+            <span class="title" style="margin-left: 10px">{{file.nombre}}</span>
+            <a href="#!" class="secondary-content"><i class="material-icons icon-red">close</i></a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-</p>
-</div>
-
 </div>
 <div class="modal-footer">
 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
