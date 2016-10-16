@@ -26,6 +26,12 @@ class filesController extends Controller
       return $query;
     }
 
+    public function getMyTrashFolders()
+    {
+      $query = app('db')->select("SELECT * FROM carpetas WHERE status = 0");
+      return $query;
+    }
+
     public function gotoFolder($id)
     {
       session_start();
@@ -66,6 +72,30 @@ class filesController extends Controller
       return $query;
     }
 
+
+
+    public function getTrashFilesByFolder(Request $r)
+    {
+      session_start();
+      $id = $r->input('id');
+      if($id > 0)
+      {
+        $_SESSION["currentFolder"] = $id;
+      }
+      elseif ($id == -1) {
+        $query = app('db')->select("SELECT * FROM archivos WHERE status = 0");
+        return $query;
+      }
+      else {
+        $id = $_SESSION["currentFolder"];
+      }
+
+      $query = app('db')->select("SELECT * FROM archivos WHERE carpetaid = {$id} AND status = 0");
+      return $query;
+    }
+
+
+
     public function deleteFolder(Request $r)
     {
       $id = $r->input('id');
@@ -74,10 +104,25 @@ class filesController extends Controller
       return 0;
     }
 
+    public function deleteTrashFolder(Request $r)
+    {
+      $id = $r->input('id');
+      $deactivateFolder = app('db')->update("DELETE FROM carpetas WHERE id = {$id}");
+      $deactivateFile = app('db')->update("DELETE FROM archivos WHERE carpetaid = {$id}");
+      return 0;
+    }
+
     public function deleteFile(Request $r)
     {
       $id = $r->input('id');
       $deactivateFile = app('db')->update("UPDATE archivos SET status = 0 WHERE id = {$id}");
+      return 0;
+    }
+
+    public function deleteTrashFile(Request $r)
+    {
+      $id = $r->input('id');
+      $deactivateFile = app('db')->update("DELETE FROM archivos WHERE id = {$id}");
       return 0;
     }
 }

@@ -23,6 +23,10 @@ $app->post('/getFilesByFolder','filesController@getFilesByFolder');
 $app->post('/login','userController@login');
 $app->post('/deleteFolder','filesController@deleteFolder');
 $app->post('/deleteFile','filesController@deleteFile');
+$app->post('/getTrashFilesByFolder','filesController@getTrashFilesByFolder');
+$app->post('/getMyTrashFolders','filesController@getMyTrashFolders');
+$app->post('/deleteTrashFolder','filesController@deleteTrashFolder');
+$app->post('/deleteTrashFile','filesController@deleteTrashFile');
 
 
 $app->get('desktop',function(){

@@ -49,6 +49,9 @@ desktopapp.controller('deskController', ['$scope', '$http', function($scope,$htt
 }]);
 
 desktopapp.controller('modalController',['$scope','$http',function($scope,$http){
+
+
+
   $scope.autorun = function(){
 
     setInterval(function(){
@@ -61,9 +64,29 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     .error(function(err){
       return err;
     })
+    $http.post('/getMyTrashFolders',{})
+    .success(function(data){
+
+      $scope.Trashfolders = data;
+      //console.log(data);
+    })
+    .error(function(err){
+      return err;
+    })
+    $http.post('/getTrashFilesByFolder',{id:-1})
+    .success(function(data){
+      $scope.allTrashfiles = data;
+    })
+    .error(function() {
+      console.log(1);
+    });
+
   },1000);
   }
   $scope.autorun();
+
+
+
 
 
   $scope.getFilesByFolder = function(id)
@@ -79,6 +102,22 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
       console.log(1);
     });
   }
+
+
+
+    $scope.getTrashFilesByFolder = function(id)
+    {
+      $(".form_archivo").show();
+      $scope.file = {id:id}
+      $http.post('/getTrashFilesByFolder',$scope.file)
+      .success(function(data){
+        $scope.Trashfiles = data;
+        //console.log(data);
+      })
+      .error(function() {
+        console.log(1);
+      });
+    }
 
   $scope.nuevaCarpeta = {nombre:''}
   $scope.crearCarpeta = function()
@@ -132,6 +171,21 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     })
   }
 
+  $scope.TrashfolderA_Eliminar = {id:''}
+  $scope.eliminarTrashFolder = function(id)
+  {
+    $scope.TrashfolderA_Eliminar.id = id;
+    $http.post('/deleteTrashFolder',$scope.TrashfolderA_Eliminar)
+    .success(function(data){
+      alert("Se elimino permanentemente (Cambiarlo por toast :P)")
+      $scope.getTrashFilesByFolder(0);
+
+    })
+    .error(function(err){
+      console.log(Err);
+    })
+  }
+
   $scope.fileA_Eliminar = {id : ''}
   $scope.eliminarFile = function(id)
   {
@@ -140,6 +194,19 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     .success(function(data){
       alert("Se trasladó a la papelera (Cambiarlo por toast :P)")
       $scope.getFilesByFolder(0);
+    })
+    .error(function() {
+      console.log("Error");
+    });
+  }
+  $scope.TrashfileA_Eliminar = {id : ''}
+  $scope.eliminarTrashFile = function(id)
+  {
+    $scope.TrashfileA_Eliminar.id = id;
+    $http.post('/deleteTrashFile',$scope.TrashfileA_Eliminar)
+    .success(function(data){
+      alert("Se elimino permanentemente (Cambiarlo por toast :P)")
+      $scope.getTrashFilesByFolder(0);
     })
     .error(function() {
       console.log("Error");

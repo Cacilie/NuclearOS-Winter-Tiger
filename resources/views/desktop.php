@@ -194,7 +194,7 @@ i.icon-pink {
         </ul>
       </div>
       <div class="col 6 offset-s2">
-        <h6>Archivos</h6>
+        <h6>Archivos </h6>
         <div class="row valign-wrapper form_archivo" style="display: none;">
           <div class="col 10 valign">
             <input type="text" name="nombre_archivo" class="form_archivo" ng-model="nuevoArchivo.nombre" placeholder="Nuevo Archivo">
@@ -217,6 +217,7 @@ i.icon-pink {
 <div class="modal-footer">
 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
 </div>
+
 </div>
 
 <!-- Estructura del Modal 2 para la Papelera -->
@@ -233,24 +234,55 @@ i.icon-pink {
       </div>
     <div class="row">
       <div class="col 4">
-        <h6>Elementos Eliminados</h6>
-        <div class="row valign-wrapper">
+        <h6>Carpetas</h6>
+        <div class="row valign-wrapper" style="display:none">
           <div class="col 10 valign">
           <input type="text" name="nombre_carpeta" ng-model="nuevaCarpeta.nombre" placeholder="Nueva Carpeta">
           </div>
           <div class="col 2 valign">
-            <a class="btn-floating btn-small waves-effect waves-light green darken-4" ng-click="crearCarpeta()"><i class="material-icons">delete</i></a>
+            <a class="btn-floating btn-small waves-effect waves-light green darken-4" ng-click="crearCarpeta()"><i class="material-icons">add</i></a>
           </div>
         </div>
+
         <ul class="collection">
-          <li class="collection-item" ng-repeat="folder in folders" >
-            <i class="material-icons icon-yellow"  ng-click="getFilesByFolder(folder.id)">folder</i>
-            <span class="title" style="margin-left: 10px" ng-click="getFilesByFolder(folder.id)">{{folder.nombre}}</span>
-            <a href="#!" class="secondary-content" ng-click="eliminarFolder(folder.id)"><i class="material-icons icon-red">delete</i></a>
+          <li class="collection-item" ng-repeat="folder in Trashfolders" >
+            <i class="material-icons icon-yellow"  ng-click="getTrashFilesByFolder(folder.id)">folder</i>
+            <span class="title" style="margin-left: 10px" ng-click="getTrashFilesByFolder(folder.id)">{{folder.nombre}}</span>
+            <a href="#!" class="secondary-content" ng-click="eliminarTrashFolder(folder.id)"><i class="material-icons icon-red">delete</i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col 2 offset-s1">
+        <h6>Archivos por folder</h6>
+        <!--
+        <div class="row valign-wrapper form_archivo" style="display: none;">
+          <div class="col 10 valign">
+            <input type="text" name="nombre_archivo" class="form_archivo" ng-model="nuevoArchivo.nombre" placeholder="Nuevo Archivo">
+          </div>
+          <div class="col 2 valign">
+            <a class="btn-floating btn-small waves-effect waves-light green darken-4" ng-click="crearArchivo()"><i class="material-icons">add</i></a>
+          </div>
+        </div>
+      -->
+        <ul class="collection form_archivo" style="display: none;">
+          <li class="collection-item" ng-repeat="file in Trashfiles">
+            <i class="material-icons icon-pink">insert_drive_file</i>
+            <span class="title" style="margin-left: 10px">{{file.nombre}}</span>
+            <a href="#!" class="secondary-content" ng-click="eliminarTrashFile(file.id)"><i class="material-icons icon-red" >close</i></a>
           </li>
         </ul>
       </div>
 
+      <div class="col 2 offset-s1">
+        <h6>Todos mis Archivos</h6>
+        <ul class="collection form_archivo" >
+          <li class="collection-item" ng-repeat="afile in allTrashfiles">
+            <i class="material-icons icon-pink">insert_drive_file</i>
+            <span class="title" style="margin-left: 10px">{{afile.nombre}}</span>
+            <a href="#!" class="secondary-content" ng-click="eliminarTrashFile(afile.id)"><i class="material-icons icon-red" >close</i></a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
