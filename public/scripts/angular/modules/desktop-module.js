@@ -55,6 +55,7 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
   $scope.autorun = function(){
 
     setInterval(function(){
+
     $http.post('/getMyFolders',{})
     .success(function(data){
 
@@ -162,7 +163,13 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     $scope.folderA_Eliminar.id = id;
     $http.post('/deleteFolder',$scope.folderA_Eliminar)
     .success(function(data){
-      alert("Se trasladó a la papelera (Cambiarlo por toast :P)")
+      if(data == 0)
+      {
+        alert("Se trasladó a la papelera (Cambiarlo por toast :P)")
+      }else {
+        alert("no tiene los permisos otorgados")
+      }
+
       $scope.getFilesByFolder(0);
 
     })
@@ -177,7 +184,13 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     $scope.TrashfolderA_Eliminar.id = id;
     $http.post('/deleteTrashFolder',$scope.TrashfolderA_Eliminar)
     .success(function(data){
-      alert("Se elimino permanentemente (Cambiarlo por toast :P)")
+      if(data == 0)
+      {
+        alert("Se elimino permanentemente (Cambiarlo por toast :P)")
+      }else {
+        alert("no tiene los permisos otorgados")
+      }
+
       $scope.getTrashFilesByFolder(0);
 
     })
@@ -192,7 +205,14 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     $scope.fileA_Eliminar.id = id;
     $http.post('/deleteFile',$scope.fileA_Eliminar)
     .success(function(data){
-      alert("Se trasladó a la papelera (Cambiarlo por toast :P)")
+      if(data == 0)
+      {
+        alert("Se trasladó a la papelera (Cambiarlo por toast :P)")
+      }else {
+        alert("no tiene los permisos otorgados")
+      }
+
+
       $scope.getFilesByFolder(0);
     })
     .error(function() {
@@ -205,7 +225,15 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     $scope.TrashfileA_Eliminar.id = id;
     $http.post('/deleteTrashFile',$scope.TrashfileA_Eliminar)
     .success(function(data){
-      alert("Se elimino permanentemente (Cambiarlo por toast :P)")
+
+      if(data == 0)
+      {
+        alert("Se elimino permanentemente (Cambiarlo por toast :P)")
+      }else {
+        alert("no tiene los permisos otorgados")
+      }
+
+
       $scope.getTrashFilesByFolder(0);
     })
     .error(function() {

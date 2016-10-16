@@ -6,6 +6,8 @@ use App\User;
 use Illuminate\Http\Request;
 class filesController extends Controller
 {
+
+
     public function createNewFolder(Request $r)
     {
       $nombre = $r->input('nombre');
@@ -98,31 +100,69 @@ class filesController extends Controller
 
     public function deleteFolder(Request $r)
     {
+      session_start();
+      $nivel = $_SESSION['user'][0]->level;
       $id = $r->input('id');
-      $deactivateFolder = app('db')->update("UPDATE carpetas SET status = 0 WHERE id = {$id}");
-      $deactivateFile = app('db')->update("UPDATE archivos SET status = 0 WHERE carpetaid = {$id}");
-      return 0;
+      if($nivel == 0)
+      {
+        $deactivateFolder = app('db')->update("UPDATE carpetas SET status = 0 WHERE id = {$id}");
+        $deactivateFile = app('db')->update("UPDATE archivos SET status = 0 WHERE carpetaid = {$id}");
+        return 0;
+      }else {
+        return 1;
+      }
+
+
     }
 
     public function deleteTrashFolder(Request $r)
     {
       $id = $r->input('id');
-      $deactivateFolder = app('db')->update("DELETE FROM carpetas WHERE id = {$id}");
-      $deactivateFile = app('db')->update("DELETE FROM archivos WHERE carpetaid = {$id}");
-      return 0;
+      session_start();
+      $nivel = $_SESSION['user'][0]->level;
+
+      if($nivel == 0)
+      {
+        $deactivateFolder = app('db')->update("DELETE FROM carpetas WHERE id = {$id}");
+        $deactivateFile = app('db')->update("DELETE FROM archivos WHERE carpetaid = {$id}");
+        return 0;
+      }else {
+        return 1;
+      }
+
     }
 
     public function deleteFile(Request $r)
     {
+      session_start();
+      $nivel = $_SESSION['user'][0]->level;
       $id = $r->input('id');
-      $deactivateFile = app('db')->update("UPDATE archivos SET status = 0 WHERE id = {$id}");
-      return 0;
+
+
+      if($nivel == 0)
+      {
+        $deactivateFile = app('db')->update("UPDATE archivos SET status = 0 WHERE id = {$id}");
+        return 0;
+      }else {
+        return 1;
+      }
+
     }
 
     public function deleteTrashFile(Request $r)
     {
+      session_start();
+      $nivel = $_SESSION['user'][0]->level;
       $id = $r->input('id');
-      $deactivateFile = app('db')->update("DELETE FROM archivos WHERE id = {$id}");
-      return 0;
+
+      if($nivel == 0)
+      {
+        $deactivateFile = app('db')->update("DELETE FROM archivos WHERE id = {$id}");
+        return 0;
+      }else {
+        return 1;
+      }
+
+
     }
 }
