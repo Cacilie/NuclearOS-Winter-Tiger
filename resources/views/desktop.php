@@ -54,7 +54,8 @@
        </ul>
      </li>
               <li><a class="waves-effect white-text" href="#!"><i class="material-icons white-text">settings_applications</i>Panel de Control</a></li>
-              <li><a class="waves-effect white-text" href="#!"><i class="material-icons white-text">call_to_action</i>Terminal</a></li>
+              <li><a class="waves-effect white-text modal-trigger" href="#modal3"><i class="material-icons white-text">call_to_action</i>Terminal</a></li>
+              <li><a class="waves-effect white-text modal-trigger" href="#modal2"><i class="material-icons white-text">delete_sweep</i>Papelera</a></li>
 
          </div>
   <footer class="page-footer pink darken-4" ng-app="desktopapp" ng-controller="deskController">
@@ -131,6 +132,18 @@
   top: 15%;
   left:32%;
 }
+          #modal2 {
+bottom:  auto !important;
+right: auto !important;
+top: 15%;
+left:32%;
+}
+          #modal3 {
+bottom:  auto !important;
+right: auto !important;
+top: 15%;
+left:32%;
+}
 
 li.collection-item {
     cursor: pointer;
@@ -206,6 +219,61 @@ i.icon-pink {
 </div>
 </div>
 
+<!-- Estructura del Modal 2 para la Papelera -->
+<div id="modal2" class="modal modal-fixed-footer">
+  <div class="modal-header">
+    <div class="modal-content">
+      <div class="row valign-wrapper">
+        <div class="col 2">
+          <img src="source/iconos/cardinal1.png" width="35px">
+        </div>
+        <div class="col 10 ">
+          <h5>Cardinal</h5>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col 4">
+        <h6>Elementos Eliminados</h6>
+        <div class="row valign-wrapper">
+          <div class="col 10 valign">
+          <input type="text" name="nombre_carpeta" ng-model="nuevaCarpeta.nombre" placeholder="Nueva Carpeta">
+          </div>
+          <div class="col 2 valign">
+            <a class="btn-floating btn-small waves-effect waves-light green darken-4" ng-click="crearCarpeta()"><i class="material-icons">delete</i></a>
+          </div>
+        </div>
+        <ul class="collection">
+          <li class="collection-item" ng-repeat="folder in folders" >
+            <i class="material-icons icon-yellow"  ng-click="getFilesByFolder(folder.id)">folder</i>
+            <span class="title" style="margin-left: 10px" ng-click="getFilesByFolder(folder.id)">{{folder.nombre}}</span>
+            <a href="#!" class="secondary-content" ng-click="eliminarFolder(folder.id)"><i class="material-icons icon-red">delete</i></a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
+</div>
+</div>
+
+<!--Estructura Terminal-->
+<div id="modal3" class="modal modal-fixed-footer">
+  <div class="modal-header">
+    <div class="modal-content">
+
+
+
+</div>
+<div class="modal-footer">
+<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
+</div>
+</div>
+
+
+
       </body>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -219,6 +287,8 @@ i.icon-pink {
 
       $( function() {
       $( "#modal1" ).draggable({handle: ".modal-header"});
+      $( "#modal2" ).draggable({handle: ".modal-header"});
+      $( "#modal3" ).draggable({handle: ".modal-header"});
       } );
       $("#chrome").click(function(e){
       $("#chrome").fadeOut(250);
