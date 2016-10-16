@@ -249,7 +249,7 @@ i.icon-pink {
             <i class="material-icons icon-yellow"  ng-click="getTrashFilesByFolder(folder.id)">folder</i>
             <span class="title" style="margin-left: 10px" ng-click="getTrashFilesByFolder(folder.id)">{{folder.nombre}}</span>
             <a href="#!" class="secondary-content" ng-click="eliminarTrashFolder(folder.id)"><i class="material-icons icon-red">delete</i></a>
-            <a href="#!" class="secondary-content" ng-click="#"><i class="material-icons">settings_backup_restore</i></a><!-- Aqui esta el boton para restaurar-->
+            <a href="#!" class="secondary-content" ng-click="restaurarTrashFolder(folder.id)"><i class="material-icons icon-red">settings_backup_restore</i></a>
           </li>
         </ul>
       </div>
@@ -270,7 +270,8 @@ i.icon-pink {
             <i class="material-icons icon-pink">insert_drive_file</i>
             <span class="title" style="margin-left: 10px">{{file.nombre}}</span>
             <a href="#!" class="secondary-content" ng-click="eliminarTrashFile(file.id)"><i class="material-icons icon-red" >close</i></a>
-            <a href="#!" class="secondary-content" ng-click="#"><i class="material-icons">settings_backup_restore</i></a><!-- Aqui esta el boton para restaurar-->
+            <a href="#!" class="secondary-content" ng-click="restaurarTrashFile(file.id)"><i class="material-icons icon-red" >settings_backup_restore</i></a>
+
           </li>
         </ul>
       </div>
@@ -282,7 +283,7 @@ i.icon-pink {
             <i class="material-icons icon-pink">insert_drive_file</i>
             <span class="title" style="margin-left: 10px">{{afile.nombre}}</span>
             <a href="#!" class="secondary-content" ng-click="eliminarTrashFile(afile.id)"><i class="material-icons icon-red" >close</i></a>
-            <a href="#!" class="secondary-content" ng-click="#"><i class="material-icons">settings_backup_restore</i></a><!-- Aqui esta el boton para restaurar-->
+            <a href="#!" class="secondary-content" ng-click="restaurarTrashFile(afile.id)"><i class="material-icons icon-red" >settings_backup_restore</i></a>
 
           </li>
         </ul>

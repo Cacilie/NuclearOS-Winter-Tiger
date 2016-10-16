@@ -111,8 +111,22 @@ class filesController extends Controller
       }else {
         return 1;
       }
+    }
 
 
+    public function restoreFolder(Request $r)
+    {
+      session_start();
+      $nivel = $_SESSION['user'][0]->level;
+      $id = $r->input('id');
+      if($nivel == 0)
+      {
+        $activateFolder = app('db')->update("UPDATE carpetas SET status = 1 WHERE id = {$id}");
+        $activateFile = app('db')->update("UPDATE archivos SET status = 1 WHERE carpetaid = {$id}");
+        return 0;
+      }else {
+        return 1;
+      }
     }
 
     public function deleteTrashFolder(Request $r)
@@ -129,7 +143,6 @@ class filesController extends Controller
       }else {
         return 1;
       }
-
     }
 
     public function deleteFile(Request $r)
@@ -142,6 +155,23 @@ class filesController extends Controller
       if($nivel == 0)
       {
         $deactivateFile = app('db')->update("UPDATE archivos SET status = 0 WHERE id = {$id}");
+        return 0;
+      }else {
+        return 1;
+      }
+
+    }
+
+    public function restoreFile(Request $r)
+    {
+      session_start();
+      $nivel = $_SESSION['user'][0]->level;
+      $id = $r->input('id');
+
+
+      if($nivel == 0)
+      {
+        $deactivateFile = app('db')->update("UPDATE archivos SET status = 1 WHERE id = {$id}");
         return 0;
       }else {
         return 1;

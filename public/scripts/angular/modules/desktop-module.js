@@ -86,9 +86,31 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
   }
   $scope.autorun();
 
+  $scope.restaurarTrashFolder = function(id)
+  {
+    $http.post('/restoreFolder',{id:id})
+    .success(function(data){
+      if(data == 0)
+      {
+        Materialize.toast('Carpeta restaurada.', 4250)
+      }else{
+        Materialize.toast('No tiene permisos para restaurar.', 4250)
+      }
+    })
+  }
 
-
-
+  $scope.restaurarTrashFile = function(id)
+  {
+    $http.post('/restoreFile',{id:id})
+    .success(function(data){
+      if(data == 0)
+      {
+        Materialize.toast('Carpeta restaurada.', 4250)
+      }else{
+        Materialize.toast('No tiene permisos para restaurar.', 4250)
+      }
+    })
+  }
 
   $scope.getFilesByFolder = function(id)
   {

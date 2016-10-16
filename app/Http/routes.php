@@ -27,6 +27,8 @@ $app->post('/getTrashFilesByFolder','filesController@getTrashFilesByFolder');
 $app->post('/getMyTrashFolders','filesController@getMyTrashFolders');
 $app->post('/deleteTrashFolder','filesController@deleteTrashFolder');
 $app->post('/deleteTrashFile','filesController@deleteTrashFile');
+$app->post('/restoreFolder','filesController@restoreFolder');
+$app->post('/restoreFile','filesController@restoreFile');
 
 
 
