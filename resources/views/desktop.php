@@ -189,7 +189,7 @@ i.icon-pink {
           <li class="collection-item" ng-repeat="folder in folders" >
             <i class="material-icons icon-yellow"  ng-click="getFilesByFolder(folder.id)">folder</i>
             <span class="title" style="margin-left: 10px" ng-click="getFilesByFolder(folder.id)">{{folder.nombre}}</span>
-            <a href="#!" class="secondary-content" ng-click="eliminarFolder(folder.id)"><i class="material-icons icon-red">delete</i></a>
+            <a href="#!" class="secondary-content " ng-click="eliminarFolder(folder.id)"><i class="material-icons icon-red">delete</i></a>
           </li>
         </ul>
       </div>
@@ -245,10 +245,11 @@ i.icon-pink {
         </div>
 
         <ul class="collection">
-          <li class="collection-item" ng-repeat="folder in Trashfolders" >
+          <li class="collection-item " ng-repeat="folder in Trashfolders" >
             <i class="material-icons icon-yellow"  ng-click="getTrashFilesByFolder(folder.id)">folder</i>
             <span class="title" style="margin-left: 10px" ng-click="getTrashFilesByFolder(folder.id)">{{folder.nombre}}</span>
             <a href="#!" class="secondary-content" ng-click="eliminarTrashFolder(folder.id)"><i class="material-icons icon-red">delete</i></a>
+            <a href="#!" class="secondary-content" ng-click="#"><i class="material-icons">settings_backup_restore</i></a><!-- Aqui esta el boton para restaurar-->
           </li>
         </ul>
       </div>
@@ -269,6 +270,7 @@ i.icon-pink {
             <i class="material-icons icon-pink">insert_drive_file</i>
             <span class="title" style="margin-left: 10px">{{file.nombre}}</span>
             <a href="#!" class="secondary-content" ng-click="eliminarTrashFile(file.id)"><i class="material-icons icon-red" >close</i></a>
+            <a href="#!" class="secondary-content" ng-click="#"><i class="material-icons">settings_backup_restore</i></a><!-- Aqui esta el boton para restaurar-->
           </li>
         </ul>
       </div>
@@ -280,6 +282,8 @@ i.icon-pink {
             <i class="material-icons icon-pink">insert_drive_file</i>
             <span class="title" style="margin-left: 10px">{{afile.nombre}}</span>
             <a href="#!" class="secondary-content" ng-click="eliminarTrashFile(afile.id)"><i class="material-icons icon-red" >close</i></a>
+            <a href="#!" class="secondary-content" ng-click="#"><i class="material-icons">settings_backup_restore</i></a><!-- Aqui esta el boton para restaurar-->
+
           </li>
         </ul>
       </div>
