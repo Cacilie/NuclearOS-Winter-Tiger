@@ -128,9 +128,9 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
 
       if(data == 0)
       {
-        alert("Carpeta creada");
+        Materialize.toast('Carpeta creada.', 4250)
       }else{
-        alert("La carpeta ya existe");
+        Materialize.toast('La carpeta ya existe.', 4250)
       }
 
       $scope.nuevaCarpeta = {nombre:''};
@@ -147,10 +147,10 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     .success(function(data){
       if(data == 1)
       {
-        alert("El archivo ya existe")
+        Materialize.toast('El archivo ya existe', 4250)
       }
       else {
-        alert("Archivo creado exitosamente")
+        Materialize.toast('Creación existosa.', 4250)
         $scope.getFilesByFolder(0);
       }
       $scope.nuevoArchivo = {nombre:''}
@@ -165,9 +165,9 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     .success(function(data){
       if(data == 0)
       {
-        alert("Se trasladó a la papelera (Cambiarlo por toast :P)")
+        Materialize.toast('Se traslado a la papelera', 4250)
       }else {
-        alert("no tiene los permisos otorgados")
+        Materialize.toast('Permisos insuficientes', 4250)
       }
 
       $scope.getFilesByFolder(0);
@@ -186,9 +186,9 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     .success(function(data){
       if(data == 0)
       {
-        alert("Se elimino permanentemente (Cambiarlo por toast :P)")
+        Materialize.toast('Se eleminó permanentemente.', 4250)
       }else {
-        alert("no tiene los permisos otorgados")
+        Materialize.toast('No tiene permisos.', 4250)
       }
 
       $scope.getTrashFilesByFolder(0);
@@ -207,9 +207,9 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     .success(function(data){
       if(data == 0)
       {
-        alert("Se trasladó a la papelera (Cambiarlo por toast :P)")
+        Materialize.toast('Se traslado a la papelera', 4250)
       }else {
-        alert("no tiene los permisos otorgados")
+        Materialize.toast('Permisos insuficientes', 4250)
       }
 
 
@@ -228,9 +228,9 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
 
       if(data == 0)
       {
-        alert("Se elimino permanentemente (Cambiarlo por toast :P)")
+        Materialize.toast('Se eliminó permanentemente.', 4250)
       }else {
-        alert("no tiene los permisos otorgados")
+        Materialize.toast('Permisos insuficientes.', 4250)
       }
 
 
