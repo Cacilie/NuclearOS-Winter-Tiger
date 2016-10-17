@@ -1,4 +1,4 @@
-# Wos 0.1 Winter Tiger
+# NuclearOS 0.1 Winter Tiger 
 
 ## A Web Operative System
 
