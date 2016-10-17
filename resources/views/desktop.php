@@ -53,7 +53,7 @@
          </li>
        </ul>
      </li>
-              <li><a class="waves-effect white-text" href="#!"><i class="material-icons white-text">settings_applications</i>Panel de Control</a></li>
+              <li><a class="waves-effect white-text modal-trigger" href="#modal4"><i class="material-icons white-text">settings_applications</i>Panel de Control</a></li>
               <li><a class="waves-effect white-text modal-trigger" href="#modal3"><i class="material-icons white-text">call_to_action</i>Terminal</a></li>
               <li><a class="waves-effect white-text modal-trigger" href="#modal2"><i class="material-icons white-text">delete_sweep</i>Papelera</a></li>
 
@@ -308,8 +308,89 @@ i.icon-pink {
 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
 </div>
 </div>
+</div>
 
-
+<div id="modal4" class="modal modal-fixed-footer">
+  <div class="modal-header">
+    <div class="modal-content">
+      <div class="row valign-wrapper">
+        <div class="col 2">
+          <img src="source/iconos/cardinal1.png" width="35px">
+        </div>
+        <div class="col 10 ">
+          <h5>Panel de control</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col 12">
+           <ul class="collapsible" data-collapsible="accordion" style="width: 300%">
+            <li>
+              <div class="collapsible-header"><i class="material-icons">settings</i>Ajuste de Privilegios</div>
+              <div class="collapsible-body">
+                <ul class="collection">
+                  <li class="collection-item">
+                    <div class="row valign-wrapper">
+                      <div class="col 9 valign">
+                        <p>Usuario 1</p>
+                      </div>
+                      <div class="col 3 valign">
+                        <div class="switch">
+                          <label>
+                            Off
+                            <input type="checkbox">
+                            <span class="lever"></span>
+                            On
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row valign-wrapper">
+                      <div class="col 9 valign">
+                        <p>Usuario 2</p>
+                      </div>
+                      <div class="col 3 valign">
+                        <div class="switch">
+                          <label>
+                            Off
+                            <input type="checkbox">
+                            <span class="lever"></span>
+                            On
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row valign-wrapper">
+                      <div class="col 9 valign">
+                        <p>Usuario 3</p>
+                      </div>
+                      <div class="col 3 valign">
+                        <div class="switch">
+                          <label>
+                            Off
+                            <input type="checkbox">
+                            <span class="lever"></span>
+                            On
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
+  </div>
+</div>
 
       </body>
       <!--Import jQuery before materialize.js-->
@@ -317,6 +398,12 @@ i.icon-pink {
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
       <script>
+      $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
+
       $('.modal-trigger').leanModal({
           opacity: 0 // Opacity of modal background
         }
