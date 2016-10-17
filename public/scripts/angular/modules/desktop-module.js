@@ -263,4 +263,51 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     });
   }
 
+
+  $scope.cambiarPrivilegio = function(id)
+  {
+    $http.post('cambiarDerechos',{id:id})
+    .success(function(data){
+      console.log(data);
+      if(data == 1){
+        Materialize.toast('No tiene los privilegios.', 4250)
+        if(id == 2)
+        {
+          var valor1 = document.getElementById("permiso_1").checked
+          document.getElementById("permiso_1").checked = !valor1;
+        }
+        if(id == 3)
+        {
+          var valor2 = document.getElementById("permiso_2").checked
+          document.getElementById("permiso_2").checked = !valor2;
+        }
+      }
+      else {
+        Materialize.toast('Privilegios actualizados.', 4250)
+      }
+    })
+  }
+
+  $scope.verificarDerechos = function()
+  {
+    $http.post('verificarDerechos',{})
+    .success(function(data){
+
+      if(data[1].level == 0)
+      {
+        console.log(data[0].level);
+        document.getElementById("permiso_1").checked = true;
+      }
+      if(data[2].level == 0)
+      {
+        console.log(data[2].level);
+        document.getElementById("permiso_2").checked = true;
+      }
+    })
+
+
+  }
+
+  $scope.verificarDerechos();
+
 }]);

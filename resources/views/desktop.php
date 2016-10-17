@@ -309,7 +309,7 @@ i.icon-pink {
 </div>
 </div>
 </div>
-
+<!--contral -->
 <div id="modal4" class="modal modal-fixed-footer">
   <div class="modal-header">
     <div class="modal-content">
@@ -331,30 +331,13 @@ i.icon-pink {
                   <li class="collection-item">
                     <div class="row valign-wrapper">
                       <div class="col 9 valign">
-                        <p>Usuario 1</p>
-                      </div>
-                      <div class="col 3 valign">
-                        <div class="switch">
-                          <label>
-                            Off
-                            <input type="checkbox">
-                            <span class="lever"></span>
-                            On
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="collection-item">
-                    <div class="row valign-wrapper">
-                      <div class="col 9 valign">
                         <p>Usuario 2</p>
                       </div>
                       <div class="col 3 valign">
                         <div class="switch">
                           <label>
                             Off
-                            <input type="checkbox">
+                            <input type="checkbox" id="permiso_1" ng-model="permiso_1" ng-click="cambiarPrivilegio(2)">
                             <span class="lever"></span>
                             On
                           </label>
@@ -371,7 +354,7 @@ i.icon-pink {
                         <div class="switch">
                           <label>
                             Off
-                            <input type="checkbox">
+                            <input type="checkbox" id="permiso_2" ng-model="permiso_2" ng-click="cambiarPrivilegio(3)">
                             <span class="lever"></span>
                             On
                           </label>

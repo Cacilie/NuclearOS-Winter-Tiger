@@ -23,4 +23,35 @@ class userController extends Controller
       return 1;
     }
   }
+
+  public function verificarDerechos()
+  {
+    session_start();
+    $query = app('db')->select("SELECT * FROM usuarios");
+
+    return $query;
+  }
+
+  public function cambiarDerechos(Request $r)
+  {
+    session_start();
+    $id = $r->input('id');
+    if($_SESSION['user'][0]->level == 0)
+    {
+      $queryS = app('db')->select("SELECT * FROM usuarios WHERE id = {$id}");
+      if($queryS[0]->level == 1){
+        $nlevel = 0;
+      }
+      else {
+        $nlevel = 1;
+      }
+      $query = app('db')->update("UPDATE usuarios SET level = {$nlevel} WHERE id = {$id}");
+      return 0;
+    }
+    else {
+      return 1;
+    }
+
+
+  }
 }

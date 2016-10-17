@@ -29,6 +29,8 @@ $app->post('/deleteTrashFolder','filesController@deleteTrashFolder');
 $app->post('/deleteTrashFile','filesController@deleteTrashFile');
 $app->post('/restoreFolder','filesController@restoreFolder');
 $app->post('/restoreFile','filesController@restoreFile');
+$app->post('verificarDerechos','userController@verificarDerechos');
+$app->post('cambiarDerechos','userController@cambiarDerechos');
 
 
 
