@@ -315,7 +315,7 @@ i.icon-pink {
         <h5>Reactor Nuclear</h5>
       </div>
     </div>
-<div id="starwarsterm" style="margin-left: 30px; margin-top: 25px">
+<div id="term_demo" style="margin-left: 00px; margin-top: 25px">
     
 </div>
 
@@ -452,72 +452,25 @@ i.icon-pink {
       </script>
 
       <script type="text/javascript">
-   $(function() {
-    var frames = [];
-    var LINES_PER_FRAME = 14;
-    var DELAY = 67;
-    //star_wars is array of lines from 'js/star_wars.js'
-    var lines = star_wars.length;
-    for (var i=0; i<lines; i+=LINES_PER_FRAME) {
-        frames.push(star_wars.slice(i, i+LINES_PER_FRAME));
-    }
-    var stop = false;
-    //to show greetings after clearing the terminal
-    function greetings(term) {
-        term.echo('STAR WARS ASCIIMACTION\n'+
-                  'Simon Jansen (C) 1997 - 2008\n'+
-                  'www.asciimation.co.nz\n\n'+
-                  'type "play" to start animation, '+
-                  'press CTRL+D to stop');
-    }
-    function play(term, delay) {
-        var i = 0;
-        var next_delay;
-        if (delay == undefined) {
-            delay = DELAY;
-        }
-        function display() {
-            if (i == frames.length) {
-                i = 0;
+   jQuery(function($, undefined) {
+    $('#term_demo').terminal(function(command, term) {
+        if (command !== '') {
+            try {
+                var result = window.eval(command);
+                if (result !== undefined) {
+                    term.echo(new String(result));
+                }
+            } catch(e) {
+                term.error(new String(e));
             }
-            term.clear();
-            if (frames[i][0].match(/[0-9]+/)) {
-                next_delay = frames[i][0] * delay;
-            } else {
-                next_delay = delay;
-            }
-            term.echo(frames[i++].slice(1).join('\n')+'\n');
-            if (!stop) {
-                setTimeout(display, next_delay);
-            } else {
-                term.clear();
-                greetings(term);
-                i = 0;
-            }
-        }
-        display();
-    }
-    $('#starwarsterm').terminal(function(command, term){
-        if (command == 'play') {
-            term.pause();
-            stop = false;
-            play(term);
+        } else {
+           term.echo('');
         }
     }, {
-        width: 1000,
+        greetings: 'Javascript Interpreter',
+        name: 'js_demo',
         height: 500,
-        prompt: 'starwars> ',
-        greetings: null,
-        onInit: function(term) {
-            greetings(term);
-        },
-        keypress: function(e, term) {
-            if (e.which == 100 && e.ctrlKey) {
-                stop = true;
-                term.resume();
-                return false;
-            }
-        }
+        prompt: 'js> '
     });
 });
     </script>
