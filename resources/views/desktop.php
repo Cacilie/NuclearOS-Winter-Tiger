@@ -10,7 +10,14 @@
 
         <script src="scripts/angular/angular.min.js" charset="utf-8"></script>
         <script src="scripts/angular/modules/desktop-module.js" charset="utf-8"></script>
-
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+        <script src="scripts/jquery.mousewheel-min.js"></script>
+        <script src="scripts/jquery.terminal-src.js"></script>
+        <script src="scripts/jquery.terminal.min.js"></script>
+        <script src="scripts/star_wars.js"></script>
+        <link href="materialize/css/jquery.terminal.css" rel="stylesheet"/>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -300,8 +307,17 @@ i.icon-pink {
 <div id="modal3" class="modal modal-fixed-footer">
   <div class="modal-header">
     <div class="modal-content">
-
-
+    <div class="row valign-wrapper">
+      <div class="col 2 valign">
+        <i class="material-icons pink-text text-darken-4">call_to_action</i>
+      </div>
+      <div class="col 10 valign">
+        <h5>Reactor Nuclear</h5>
+      </div>
+    </div>
+<div id="starwarsterm" style="margin-left: 30px; margin-top: 25px">
+    
+</div>
 
 </div>
 <div class="modal-footer">
@@ -377,9 +393,7 @@ i.icon-pink {
 
       </body>
       <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+      
       <script>
       $(document).ready(function(){
     $('.collapsible').collapsible({
@@ -436,4 +450,75 @@ i.icon-pink {
     }
     );
       </script>
+
+      <script type="text/javascript">
+   $(function() {
+    var frames = [];
+    var LINES_PER_FRAME = 14;
+    var DELAY = 67;
+    //star_wars is array of lines from 'js/star_wars.js'
+    var lines = star_wars.length;
+    for (var i=0; i<lines; i+=LINES_PER_FRAME) {
+        frames.push(star_wars.slice(i, i+LINES_PER_FRAME));
+    }
+    var stop = false;
+    //to show greetings after clearing the terminal
+    function greetings(term) {
+        term.echo('STAR WARS ASCIIMACTION\n'+
+                  'Simon Jansen (C) 1997 - 2008\n'+
+                  'www.asciimation.co.nz\n\n'+
+                  'type "play" to start animation, '+
+                  'press CTRL+D to stop');
+    }
+    function play(term, delay) {
+        var i = 0;
+        var next_delay;
+        if (delay == undefined) {
+            delay = DELAY;
+        }
+        function display() {
+            if (i == frames.length) {
+                i = 0;
+            }
+            term.clear();
+            if (frames[i][0].match(/[0-9]+/)) {
+                next_delay = frames[i][0] * delay;
+            } else {
+                next_delay = delay;
+            }
+            term.echo(frames[i++].slice(1).join('\n')+'\n');
+            if (!stop) {
+                setTimeout(display, next_delay);
+            } else {
+                term.clear();
+                greetings(term);
+                i = 0;
+            }
+        }
+        display();
+    }
+    $('#starwarsterm').terminal(function(command, term){
+        if (command == 'play') {
+            term.pause();
+            stop = false;
+            play(term);
+        }
+    }, {
+        width: 1000,
+        height: 500,
+        prompt: 'starwars> ',
+        greetings: null,
+        onInit: function(term) {
+            greetings(term);
+        },
+        keypress: function(e, term) {
+            if (e.which == 100 && e.ctrlKey) {
+                stop = true;
+                term.resume();
+                return false;
+            }
+        }
+    });
+});
+    </script>
       </html>
