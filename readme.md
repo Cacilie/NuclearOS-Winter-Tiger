@@ -15,6 +15,6 @@ If you discover a security vulnerability within NuclearOS, please send an email 
 There are certain rules you must follow:
 
 ##### 1.-Commet your code. Yes, your code does need comments.
-##### 2.-Be precise in you commit descriptión.
+##### 2.-Be precise in you commit description.
 ##### 3.- If there´s a hard-to-solve conflict, maybe your pull request will be rejected.
 ##### 5.- Code as everyone else, do not destroy the project structure.
