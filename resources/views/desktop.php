@@ -2,7 +2,7 @@
   <html >
     <head>
       <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="materialize/css/material-icons/iconfont/material-icons.css"  media="screen,projection"/>
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="materialize/css/estilos.css"  media="screen,projection"/>
@@ -316,7 +316,7 @@ i.icon-pink {
       </div>
     </div>
 <div id="term_demo" style="margin-left: 00px; margin-top: 25px">
-    
+
 </div>
 
 </div>
@@ -393,7 +393,7 @@ i.icon-pink {
 
       </body>
       <!--Import jQuery before materialize.js-->
-      
+
       <script>
       $(document).ready(function(){
     $('.collapsible').collapsible({

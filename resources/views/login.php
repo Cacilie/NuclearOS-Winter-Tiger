@@ -2,7 +2,7 @@
   <html>
     <head>
       <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="materialize/css/material-icons/iconfont/material-icons.css"  media="screen,projection"/>
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="materialize/css/estilos.css"  media="screen,projection"/>
@@ -141,7 +141,7 @@
         }*/
 
         $(document).ready(function(){
-          
+
           $("#campo_1").focus(function(){
             var filterVal = 'blur(4px)';
             $("#bg").css("-webkit-filter","none");
