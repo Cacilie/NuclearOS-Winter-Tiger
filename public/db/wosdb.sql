@@ -2,10 +2,10 @@
 -- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 16-10-2016 a las 07:25:55
--- Versión del servidor: 10.1.16-MariaDB
--- Versión de PHP: 5.5.38
+-- Host: localhost
+-- Generation Time: Oct 19, 2016 at 03:35 
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `wosdb`
+-- Database: `wosdb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `archivos`
+-- Table structure for table `archivos`
 --
 
 CREATE TABLE `archivos` (
@@ -34,18 +34,17 @@ CREATE TABLE `archivos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `archivos`
+-- Dumping data for table `archivos`
 --
 
 INSERT INTO `archivos` (`id`, `carpetaid`, `nombre`, `status`) VALUES
 (12, 6, 'tredoku.pl', 1),
-(13, 6, 'Molusco.hs', 1),
-(17, 8, 'El rene y sus pachangas.mp4', 0);
+(13, 6, 'Molusco.hs', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `carpetas`
+-- Table structure for table `carpetas`
 --
 
 CREATE TABLE `carpetas` (
@@ -55,17 +54,16 @@ CREATE TABLE `carpetas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `carpetas`
+-- Dumping data for table `carpetas`
 --
 
 INSERT INTO `carpetas` (`id`, `nombre`, `status`) VALUES
-(6, 'Lenguajes de Programación', 1),
-(8, 'Porno', 0);
+(6, 'Lenguajes de Programación', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -76,7 +74,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `name`, `password`, `level`) VALUES
@@ -85,43 +83,43 @@ INSERT INTO `usuarios` (`id`, `name`, `password`, `level`) VALUES
 (3, 'usuario3', 'tres', 2);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `archivos`
+-- Indexes for table `archivos`
 --
 ALTER TABLE `archivos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `carpetas`
+-- Indexes for table `carpetas`
 --
 ALTER TABLE `carpetas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `archivos`
+-- AUTO_INCREMENT for table `archivos`
 --
 ALTER TABLE `archivos`
   MODIFY `id` bigint(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
--- AUTO_INCREMENT de la tabla `carpetas`
+-- AUTO_INCREMENT for table `carpetas`
 --
 ALTER TABLE `carpetas`
   MODIFY `id` bigint(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
