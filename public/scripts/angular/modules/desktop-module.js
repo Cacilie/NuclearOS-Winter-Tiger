@@ -1,3 +1,6 @@
+var quill = new Quill('#my-editor',{
+  theme:'snow',
+});
 var desktopapp = angular.module('desktopapp', []);
 desktopapp.controller('deskController', ['$scope', '$http', function($scope,$http){
   $scope.abrirChrome = function() // this launch google
