@@ -1,47 +1,47 @@
 var desktopapp = angular.module('desktopapp', []);
 desktopapp.controller('deskController', ['$scope', '$http', function($scope,$http){
-  $scope.abrirChrome = function()
+  $scope.abrirChrome = function() // this launch google
   {
     window.open('http://www.google.com','','width=1000,height=600');
   }
 
-  $scope.abrirTraductor = function()
+  $scope.abrirTraductor = function() // this launch google translator
   {
     window.open('http://translate.google.com/?hl=es','','width=1000,height=600');
   }
 
-  $scope.abrirGmail = function()
+  $scope.abrirGmail = function() // this launch gmail
   {
     window.open('https://mail.google.com','','width=1000,height=600');
   }
 
-  $scope.abrirFacebook = function()
+  $scope.abrirFacebook = function()  // this launch facebook
   {
     window.open('https://facebook.com','','width=1000,height=600');
   }
 
-  $scope.abrirTwitter = function()
+  $scope.abrirTwitter = function() // this launch Twitter
   {
     window.open('https://twitter.com','','width=1000,height=600');
   }
 
-  $scope.abrirInstagram = function()
+  $scope.abrirInstagram = function() // this launch Instagram
   {
     window.open('https://www.instagram.com','','width=1000,height=600');
   }
 
-  $scope.abrirSpotify = function()
+  $scope.abrirSpotify = function() // this launch Spotify
   {
     window.open('https://play.spotify.com','','width=1000,height=600');
   }
 
 
-  $scope.abrirOutlook = function()
+  $scope.abrirOutlook = function() // this launch Microsoft Outlook
   {
     window.open('https://www.outlook.com','','width=1000,height=600');
   }
 
-  $scope.cambiarUsuario = function()
+  $scope.cambiarUsuario = function() // this switch the user
   {
     console.log("Entre");
     window.location = "/"
@@ -52,31 +52,31 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
 
 
 
-  $scope.autorun = function(){
+  $scope.autorun = function(){  //this function execute the process that check the files status
+ 
+    setInterval(function(){  
 
-    setInterval(function(){
-
-    $http.post('/getMyFolders',{})
+    $http.post('/getMyFolders',{})  // here we get all the folders which status is 1
     .success(function(data){
 
-      $scope.folders = data;
+      $scope.folders = data;    //if the ajax is successfull, we save the data that te server returns in $scope.folders
       //console.log(data);
     })
     .error(function(err){
       return err;
     })
-    $http.post('/getMyTrashFolders',{})
+    $http.post('/getMyTrashFolders',{})  // here we get all the folders which status is 0
     .success(function(data){
 
-      $scope.Trashfolders = data;
+      $scope.Trashfolders = data;   //if the ajax is successfull, we save the data that te server returns in $scope.folders
       //console.log(data);
     })
     .error(function(err){
       return err;
     })
-    $http.post('/getTrashFilesByFolder',{id:-1})
+    $http.post('/getTrashFilesByFolder',{id:-1})  // this post het all the trashfiles, as you see,we sent -1 as parameter,
     .success(function(data){
-      $scope.allTrashfiles = data;
+      $scope.allTrashfiles = data;    // the -1 tell the server that we all all the trashfiles
     })
     .error(function() {
       console.log(1);
@@ -88,17 +88,20 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
 
   $scope.restaurarTrashFolder = function(id)
   {
-    $http.post('/restoreFolder',{id:id})
+    $http.post('/restoreFolder',{id:id}) // in this post, the id is sent to the server in order to restore a certain folder and all the files in it
     .success(function(data){
-      if(data == 0)
+      if(data == 0)  // Terrific! if the server return 0, the file has been restore without trouble
       {
         Materialize.toast('Carpeta restaurada.', 4250)
       }else{
-        Materialize.toast('No tiene permisos para restaurar.', 4250)
+        Materialize.toast('No tiene permisos para restaurar.', 4250) // if the server return != 0, it means that you dont have the level to restore
       }
     })
-  }
+  } 
 
+/*
+restaruarTrashFile gets the id as a parameter and send it to the server in order to restore a certain file
+*/
   $scope.restaurarTrashFile = function(id)
   {
     $http.post('/restoreFile',{id:id})
@@ -111,10 +114,13 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
       }
     })
   }
+/*
+getFilesByFolder get the files based on a parameter
+*/
 
   $scope.getFilesByFolder = function(id)
   {
-    $(".form_archivo").show();
+    $(".form_archivo").show(); //this means that the input used to introduce a new file will be only displayed if the function is fire.
     $scope.file = {id:id}
     $http.post('/getFilesByFolder',$scope.file)
     .success(function(data){
@@ -126,8 +132,9 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     });
   }
 
-
-
+/*
+getTrashFiesByFolder get the files based on a parameter.
+*/
     $scope.getTrashFilesByFolder = function(id)
     {
       $(".form_archivo").show();
@@ -142,16 +149,19 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
       });
     }
 
+/*
+In order to crear a new folder it is necessary the name of the folder.
+*/
   $scope.nuevaCarpeta = {nombre:''}
   $scope.crearCarpeta = function()
   {
-    $http.post('/createNewFolder',$scope.nuevaCarpeta)
+    $http.post('/createNewFolder',$scope.nuevaCarpeta)  // here the name is sent to the server
     .success(function(data){
 
-      if(data == 0)
+      if(data == 0)   //if the server returns 0, the folder was successful created
       {
         Materialize.toast('Carpeta creada.', 4250)
-      }else{
+      }else{                                 
         Materialize.toast('La carpeta ya existe.', 4250)
       }
 
@@ -162,12 +172,12 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
     })
   }
 
-  $scope.nuevoArchivo = {nombre:''}
+  $scope.nuevoArchivo = {nombre:''} // this contains the name of the new file
   $scope.crearArchivo= function()
   {
-    $http.post('/createNewFile',$scope.nuevoArchivo)
+    $http.post('/createNewFile',$scope.nuevoArchivo) // here the name is sent to the server
     .success(function(data){
-      if(data == 1)
+      if(data == 1) 
       {
         Materialize.toast('El archivo ya existe', 4250)
       }
@@ -287,6 +297,11 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
       }
     })
   }
+
+/*
+verificarDerechos is used to verify if an user has the  privileges to modify the permissions 
+of others users.
+*/
 
   $scope.verificarDerechos = function()
   {
