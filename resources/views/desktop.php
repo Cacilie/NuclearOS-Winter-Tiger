@@ -17,6 +17,7 @@
         <script src="scripts/jquery.terminal-src.js"></script>
         <script src="scripts/jquery.terminal.min.js"></script>
         <script src="scripts/star_wars.js"></script>
+        <script src="ace/src-noconflict/ace.js" charset="utf-8"></script>
         <link href="materialize/css/jquery.terminal.css" rel="stylesheet"/>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -63,13 +64,14 @@
               <li><a class="waves-effect white-text modal-trigger" href="#modal4"><i class="material-icons white-text">settings_applications</i>Panel de Control</a></li>
               <li><a class="waves-effect white-text modal-trigger" href="#modal3"><i class="material-icons white-text">call_to_action</i>Terminal</a></li>
               <li><a class="waves-effect white-text modal-trigger" href="#modal2"><i class="material-icons white-text">delete_sweep</i>Papelera</a></li>
+              <li><a class="waves-effect white-text modal-trigger" href="#modalArtisan"><i class="material-icons white-text">code</i>Artisan ACE</a></li>
 
          </div>
   <footer class="page-footer pink darken-4" ng-app="desktopapp" ng-controller="deskController">
         <div class="container">
           <div class="row">
             <div class="col l12 s12">
-              <center><h5 class="white-text">wOS Apps</h5></center>
+              <center><h5 class="white-text">Nuclear Apps</h5></center>
               <table align="center">
                 <tr>
                   <td><center><img class="tooltipped" data-position="top" data-delay="100" data-tooltip="Google" id="chrome" src="source/iconos/chrome.png" alt="" ng-click="abrirChrome()"></center></td>
@@ -166,6 +168,14 @@ i.icon-red {
 i.icon-pink {
     color: #880e4f;
 }
+#editor {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
         </style>
 
 
@@ -316,8 +326,29 @@ i.icon-pink {
       </div>
     </div>
 <div id="term_demo" style="margin-left: 00px; margin-top: 25px">
-    
+
 </div>
+
+</div>
+<div class="modal-footer">
+<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
+</div>
+</div>
+</div>
+
+
+<div id="modalArtisan" class="modal modal-fixed-footer">
+  <div class="modal-header">
+    <div class="modal-content">
+    <div class="row valign-wrapper">
+      <div class="col 2 valign">
+        <i class="material-icons pink-text text-darken-4">code</i>
+      </div>
+      <div class="col 10 valign">
+        <h5>Artisan ACE</h5>
+      </div>
+    </div>
+    <div id="editor"> console.log("Hola Nuclear")</div>
 
 </div>
 <div class="modal-footer">
@@ -393,7 +424,7 @@ i.icon-pink {
 
       </body>
       <!--Import jQuery before materialize.js-->
-      
+
       <script>
       $(document).ready(function(){
     $('.collapsible').collapsible({
@@ -410,6 +441,8 @@ i.icon-pink {
       $( "#modal1" ).draggable({handle: ".modal-header"});
       $( "#modal2" ).draggable({handle: ".modal-header"});
       $( "#modal3" ).draggable({handle: ".modal-header"});
+      $( "#modalArtisan" ).draggable({handle: ".modal-footer"});
+
       } );
       $("#chrome").click(function(e){
       $("#chrome").fadeOut(250);
@@ -474,4 +507,11 @@ i.icon-pink {
     });
 });
     </script>
+
+
+    <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+</script>
       </html>
