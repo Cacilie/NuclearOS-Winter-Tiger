@@ -1,0 +1,895 @@
+/*
+ * NoGray JavaScript Library
+ *
+ * Copyright (c), All right reserved
+ * Gazing Design - http://www.NoGray.com
+ * http://www.nogray.com/license.php
+ */
+ 
+/* right to left languages */
+.rtl {direction:rtl;}
+
+/* standard button */
+.ng-button {cursor:pointer;
+	display:inline-block;
+	padding:5px;
+	position:relative;
+	text-align:center;
+	background:#fafafa;
+	color:#000000;
+	font-weight:300;
+	text-decoration:none;
+	border:solid #c6c6c6 1px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-webkit-transition:background-color 0.1s, border-color 0.1s;
+	-moz-transition:background-color 0.1s, border-color 0.1s;
+	transition:background-color 0.1s, border-color 0.1s;
+	white-space:nowrap;
+	nav-index:auto;
+	-webkit-appearance: none;
+	vertical-align:middle;}
+	
+.ng-button .ng-icon {margin:0px auto !important;}
+
+.ng-button a {color:inherit;
+	text-decoration:inherit;
+	outline:none;
+	cursor:inherit;}
+	
+.ng-button-icon-span {display:inline-block;}
+.ng-button-icon-span img {display:block;}
+
+.ng-button-text-span {padding:0px 5px;}
+
+.ng-button-arrow:before {content:'▼';
+	font-size:smaller;
+	padding-left:3px;
+	text-align:left;
+	display:inline-block;}
+	
+.rtl .ng-button-arrow:before {padding-left:0px;
+	padding-right:3px;}
+	
+.ng-button .ng-button-count {display:inline-block;
+	position:absolute;
+	top:-8px;
+	left:-8px;
+	padding:3px;
+	font-size:xx-small;
+	color:#ffffff;
+	border-radius:16px;
+	min-width:10px;
+	text-align:center;
+	background:#cc1414;
+	font-weight:normal;
+	text-shadow:none;}
+	
+.rtl .ng-button-count {left:auto;
+	right:-8px;}
+	
+/* button layout */
+.ng-2-rows-1-2-button > span:nth-child(1) {display:block;
+	margin:auto;
+	margin-bottom:5px;}
+	
+.ng-2-rows-2-1-button > span:nth-child(3) {display:block;
+	margin:auto;
+	margin-top:5px;}
+	
+.ng-3-rows-button > span {display:block;
+	margin:auto;}
+	
+.ng-3-rows-button > span:nth-child(2) {margin:5px auto;}
+
+/* split button styles */
+.ng-split-button .ng-button:first-child {-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-right-width:0px;}
+	
+.ng-split-button .ng-button:last-child {-webkit-border-top-left-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;}
+	
+.ng-split-button .rtl.ng-button:first-child {-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-right-width:1px;
+	
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-left-width:0px;}
+	
+.ng-split-button .rtl.ng-button:last-child {-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	
+	-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;}
+	
+/* main button colors */
+.ng-button.main {background-color:#00a5ff;
+	border-color:#1181bd;
+	color:#ffffff;
+	text-shadow:1px 1px rgba(0, 0, 0, 0.35);}
+	
+.ng-button.main .ng-button-count {background-color:#f09e29;
+	color:#000000;}
+	
+/* important button */
+.ng-button.important {background-color:#06cc01;
+	border-color:#09a605;
+	color:#ffffff;
+	text-shadow:1px 1px rgba(0, 0, 0, 0.35);}
+	
+.ng-button.important .ng-button-count {background-color:#f09e29;
+	color:#000000;}
+	
+/* clear button colors */
+.ng-button.clear {background-color:transparent;
+	border-color:transparent;}
+	
+.ng-button.clear .ng-button-count {} /* defaults to normal colors */
+
+/* reverse clear button colors */
+.ng-button.rclear {background-color:transparent;
+	border-color:transparent;
+	color:#ffffff;}
+	
+.ng-button.rclear .ng-button-count {background-color:#f09e29;
+	color:#000000;}
+	
+/* over status */
+.ng-button.over, .ng-button:hover {background-color:#daedff;
+	border-color:#60b0ff;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.55);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.55);
+	box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.55);}
+	
+/* main button over status */
+.ng-button.over.main, .ng-button.main:hover {background-color:#187fb7;
+	border-color:#156896;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);}
+	
+/* important button over status */
+.ng-button.over.important, .ng-button.important:hover {background-color:#079800;
+	border-color:#06a10d;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);}
+	
+/* clear button over status */
+.ng-button.over.clear, .ng-button.clear:hover {background-color:transparent;
+	border-color:transparent;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.15);
+	box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.15);} 
+	
+/* reverse clear button over status */
+.ng-button.over.rclear, .ng-button.rclear:hover {background-color:transparent;
+	border-color:transparent;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);} 
+	
+/* down status */
+.ng-button.down {background-color:#d3e4f4;
+	border-color:#9dceff;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.10);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.10);
+	box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.10);}
+	
+/* main button down status */
+.ng-button.down.main {background-color:#097ab5;
+	border-color:#0b6699;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);
+	box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);}
+	
+/* important button down status */
+.ng-button.down.important {background-color:#00b004;
+	border-color:#099a09;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);
+	box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);}
+	
+/* clear button down status */
+.ng-button.down.clear {background-color:transparent;
+	border-color:transparent;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.25);
+	box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.25);}
+	
+/* reverse clear button down status */
+.ng-button.down.rclear {background-color:transparent;
+	border-color:transparent;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.25);
+	box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.25);}
+	
+/* checked status */
+.ng-button.checked {background-color:#d3e4f4;
+	border-color:#9dceff;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.55);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.55);
+	box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.55);}
+	
+.ng-button.checked .ng-button-count {background:#ab0000;}
+	
+/* main button checked status */
+.ng-button.checked.main {background-color:#097ab5;
+	border-color:#0b6699;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);}
+	
+.ng-button.main.checked .ng-button-count {background-color:#ff9600;}
+	
+/* important button checked status */
+.ng-button.checked.important {background-color:#00b004;
+	border-color:#099a09;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);}
+	
+.ng-button.important.checked .ng-button-count {background-color:#ff9600;}
+
+/* clear button checked status */
+.ng-button.checked.clear {background-color:transparent;
+	border-color:transparent;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.25);
+	box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.25);}
+	
+.ng-button.clear.checked .ng-button-count {}
+
+
+/* reverse clear button checked status */
+.ng-button.checked.rclear {background-color:transparent;
+	border-color:transparent;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);}
+	
+.ng-button.rclear.checked .ng-button-count {background-color:#ff9600;}
+	
+/* checked over status */
+.ng-button.checked.over, .ng-button.checked:hover {border-color:#60b0ff;
+	-moz-box-shadow:inset 0 0 2px 2px rgba(255, 255, 255, 0.55);
+	-webkit-box-shadow:inset 0 0 2px 2px rgba(255, 255, 255, 0.55);
+	box-shadow:inset 0 0 2px 2px rgba(255, 255, 255, 0.55);}
+	
+/* main button checked over status */
+.ng-button.main.checked.over, .ng-button.main.checked:hover {border-color:#156896;
+	-moz-box-shadow:inset 0 0 2px 2px rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow:inset 0 0 2px 2px rgba(255, 255, 255, 0.25);
+	box-shadow:inset 0 0 2px 2px rgba(255, 255, 255, 0.25);}
+	
+/* important button checked over status */
+.ng-button.important.checked.over, .ng-button.important.checked:hover {border-color:#06a10d;
+	-moz-box-shadow:inset 0 0 2px 2px rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow:inset 0 0 2px 2px rgba(255, 255, 255, 0.25);
+	box-shadow:inset 0 0 2px 2px rgba(255, 255, 255, 0.25);}
+	
+/* clear button checked over status */
+.ng-button.clear.checked.over, .ng-button.clear.checked:hover {border-color:transparent;
+	-moz-box-shadow:inset 0 0 2px 2px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow:inset 0 0 2px 2px rgba(0, 0, 0, 0.25);
+	box-shadow:inset 0 0 2px 2px rgba(0, 0, 0, 0.25);}
+	
+/* reverse clear button checked over status */
+.ng-button.rclear.checked.over, .ng-button.rclear.checked:hover {border-color:transparent;
+	-moz-box-shadow:inset 0 0 2px 2px rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow:inset 0 0 2px 2px rgba(255, 255, 255, 0.25);
+	box-shadow:inset 0 0 2px 2px rgba(255, 255, 255, 0.25);}
+	
+/* checked down status */
+.ng-button.checked.down {-moz-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.10);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.10);
+	box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.10);}
+
+/* main button checked down status */
+.ng-button.main.checked.down {-moz-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);
+	box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);}
+	
+/* important button checked down status */
+.ng-button.important.checked.down {-moz-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);
+	box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);}
+	
+/* clear button checked down status */
+.ng-button.clear.checked.down {-moz-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);
+	box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);}
+	
+/* reverse clear button checked down status */
+.ng-button.rclear.checked.down {-moz-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);
+	box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.20);}
+	
+/* checked checkbox button */
+.ng-button.checked.checkbox .ng-button-text-span:after,
+.ng-button.checked.radio .ng-button-text-span:after {position:absolute;
+	top:-3px;
+	right:1px;
+	font-size:smaller;
+	opacity:0.5;}
+	
+.rtl.ng-button.checked.checkbox .ng-button-text-span:after,
+.rtl.ng-button.checked.radio .ng-button-text-span:after {right:auto;
+	left:1px;}
+	
+.ng-button.checked.checkbox .ng-button-text-span:after {content:'✓';}
+.ng-button.checked.radio .ng-button-text-span:after {content:'●';}
+	
+/* disabled status */
+.ng-button[disabled], .ng-button[disabled].down, .ng-button[disabled].over, .ng-button[disabled]:hover,
+.ng-button.disabled, .ng-button.disabled.down, .ng-button.disabled.over, .ng-button.disabled:hover {color:#949494;
+	background:#f4f4f4;
+	border-color:#e1e1e1;
+	cursor:not-allowed;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;}
+	
+.ng-button[disabled] .ng-button-count, .ng-button.disabled .ng-button-count {background:#a55959;}
+
+/* disabled icon opacity */
+.ng-button[disabled] .ng-button-icon-span,
+.ng-button.disabled  .ng-button-icon-span {opacity:0.35;}
+	
+/* main button disabled status */
+.ng-button.main[disabled], .ng-button.main[disabled].down, .ng-button.main[disabled].over,
+.ng-button.main[disabled]:hover, .ng-button.main.disabled, .ng-button.main.disabled.down
+.ng-button.main.disabled.over, .ng-button.main.disabled:hover {color:#e7e7e7;
+	background:#7eadc7;
+	border-color:#7b96a4;}
+	
+.ng-button.main[disabled] .ng-button-count,
+.ng-button.main.disabled .ng-button-count {background-color:#dcc19a;}
+	
+/* important button disabled status */
+.ng-button.important[disabled], .ng-button.important[disabled].down, .ng-button.important[disabled].over,
+.ng-button.important[disabled]:hover, .ng-button.important.disabled, .ng-button.important.disabled.down
+.ng-button.important.disabled.over, .ng-button.important.disabled:hover {color:#d0d0d0;
+	background:#75b96c;
+	border-color:#6aa967;}
+	
+.ng-button.important[disabled] .ng-button-count,
+.ng-button.important.disabled .ng-button-count {background-color:#dcc19a;}
+
+/* clear button disabled status */
+.ng-button.clear[disabled], .ng-button.clear[disabled].down, .ng-button.clear[disabled].over,
+.ng-button.clear[disabled]:hover, .ng-button.clear.disabled, .ng-button.clear.disabled.down
+.ng-button.clear.disabled.over, .ng-button.clear.disabled:hover {color:#888888;
+	background-color:transparent;
+	border-color:transparent;}
+	
+.ng-button.clear[disabled] .ng-button-count,
+.ng-button.clear.disabled .ng-button-count {}
+
+/* reverse clear button disabled status */
+.ng-button.rclear[disabled], .ng-button.rclear[disabled].down, .ng-button.rclear[disabled].over,
+.ng-button.rclear[disabled]:hover, .ng-button.rclear.disabled, .ng-button.rclear.disabled.down
+.ng-button.rclear.disabled.over, .ng-button.rclear.disabled:hover {color:#a5a5a5;
+	background-color:transparent;
+	border-color:transparent;}
+	
+.ng-button.rclear[disabled] .ng-button-count,
+.ng-button.rclear.disabled .ng-button-count {background-color:#867c6b;}
+	
+/* disabled checked status */
+.ng-button[disabled].checked, .ng-button[disabled].checked.down, .ng-button[disabled].checked.over,
+.ng-button[disabled].checked:hover, .ng-button.checked.disabled, .ng-button.checked.disabled.down,
+.ng-button.checked.disabled.over, .ng-button.checked.disabled:hover {color:#333333;
+	background:#e5e5e5;
+	border-color:#d5d5d5;}
+	
+.ng-button[disabled].checked .ng-button-count, .ng-button.disabled .checked.ng-button-count {background:#7a3e3e;}
+	
+/* main button disabled checked status */
+.ng-button.main[disabled].checked, .ng-button.main[disabled].checked.down, .ng-button.main[disabled].checked.over,
+.ng-button.main[disabled].checked:hover, .ng-button.main.checked.disabled, .ng-button.main.checked.disabled.down,
+.ng-button.main.checked.disabled.over, .ng-button.main.checked.disabled:hover {color:#c8c8c8;
+	background:#618aa0;
+	border-color:#5a727f;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);}
+	
+.ng-button.main[disabled].checked .ng-button-count,
+.ng-button.main.disabled.checked .ng-button-count {background:#f1c88d;}
+
+/* important button disabled checked status */
+.ng-button.important[disabled].checked, .ng-button.important[disabled].checked.down,
+.ng-button.important[disabled].checked.over, .ng-button.important[disabled].checked:hover,
+.ng-button.important.checked.disabled, .ng-button.important.checked.disabled.down,
+.ng-button.important.checked.disabled.over, .ng-button.important.checked.disabled:hover {color:#cfcfcf;
+	background:#67a45f;
+	border-color:#608e61;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);}
+	
+.ng-button.important[disabled].checked .ng-button-count,
+.ng-button.important.disabled.checked .ng-button-count {background:#f1c88d;}
+
+/* clear button disabled checked status */
+.ng-button.clear[disabled].checked, .ng-button.clear[disabled].checked.down, .ng-button.clear[disabled].checked.over,
+.ng-button.clear[disabled].checked:hover, .ng-button.clear.checked.disabled, .ng-button.clear.checked.disabled.down,
+.ng-button.clear.checked.disabled.over, .ng-button.clear.checked.disabled:hover {color:#505050;
+	background-color:transparent;
+	border-color:transparent;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.25);
+	box-shadow:inset 0 0 1px 1px rgba(0, 0, 0, 0.25);}
+	
+.ng-button.clear[disabled].checked .ng-button-count,
+.ng-button.clear.disabled.checked .ng-button-count {}
+
+/* reverse clear button disabled checked status */
+.ng-button.rclear[disabled].checked, .ng-button.rclear[disabled].checked.down, .ng-button.rclear[disabled].checked.over,
+.ng-button.rclear[disabled].checked:hover, .ng-button.rclear.checked.disabled, .ng-button.rclear.checked.disabled.down,
+.ng-button.rclear.checked.disabled.over, .ng-button.rclear.checked.disabled:hover {color:#c0c0c0;
+	background-color:transparent;
+	border-color:transparent;
+	-moz-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+	box-shadow:inset 0 0 1px 1px rgba(255, 255, 255, 0.25);}
+	
+.ng-button.clear[disabled].checked .ng-button-count,
+.ng-button.clear.disabled.checked .ng-button-count {background-color:#807869;}
+
+/* sub buttons list */
+.ng-sub-buttons {display:none;}
+
+/* button options list */
+.ng-buttons-vertical {list-style:none;
+	margin:0px;
+	padding:0px;}
+	
+.ng-buttons-vertical > li {list-style:none !important;
+	margin:0px !important;
+	padding:0px !important;}
+	
+.ng-buttons-vertical > li > .ng-button {-webkit-border-radius:0px;
+	-moz-border-radius:0px;
+	border-radius:0px;
+	border-top-width:0px;
+	display:block;}
+	
+.ng-buttons-vertical > li:first-child > .ng-button {-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-top-width:1px;}
+	
+.ng-buttons-vertical > li:last-child > .ng-button {-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;}
+	
+
+.ng-buttons-vertical.ng-floating > li > .ng-button {-moz-box-shadow:2px 2px 3px rgba(0,0,0,0.15);
+	-webkit-box-shadow:2px 2px 3px rgba(0,0,0,0.15);
+	box-shadow:2px 2px 3px rgba(0,0,0,0.15);}
+	
+.ng-buttons-vertical.ng-floating > li > .rtl.ng-button {-moz-box-shadow:-2px 2px 3px rgba(0,0,0,0.15);
+	-webkit-box-shadow:-2px 2px 3px rgba(0,0,0,0.15);
+	box-shadow:-2px 2px 3px rgba(0,0,0,0.15);}
+	
+/* horizontal buttons list */
+.ng-buttons-horizontal {margin:0px;
+	padding:0px;
+	list-style:none;
+	display:inline-block;
+	border-collapse:collapse;
+	white-space:nowrap;}
+	
+.ng-buttons-horizontal > li {margin:0px !important;
+	padding:0px !important;
+	list-style:none !important;
+	display:table-cell !important;
+	vertical-align:top !important;
+	border-collapse:collapse !important;}
+	
+.ng-buttons-horizontal > li > .ng-button {-webkit-border-radius:0px;
+	-moz-border-radius:0px;
+	border-radius:0px;
+	border-left-width:0px;}
+	
+.ng-buttons-horizontal > li:first-child > .ng-button {-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-left-width:1px;}
+	
+.ng-buttons-horizontal > li:last-child > .ng-button {-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;}
+	
+.ng-buttons-horizontal > li:first-child > .rtl.ng-button {-webkit-border-top-left-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-left-width:0px;
+	
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-right-width:1px;}
+	
+.ng-buttons-horizontal > li:last-child > .rtl.ng-button {-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-left-width:1px;}
+	
+.ng-buttons-horizontal.ng-floating > li > .ng-button {-moz-box-shadow:2px 2px 3px rgba(0,0,0,0.15);
+	-webkit-box-shadow:2px 2px 3px rgba(0,0,0,0.15);
+	box-shadow:2px 2px 3px rgba(0,0,0,0.15);}
+	
+.ng-buttons-horizontal.ng-floating > li > .rtl.ng-button {-moz-box-shadow:-2px 2px 3px rgba(0,0,0,0.15);
+	-webkit-box-shadow:-2px 2px 3px rgba(0,0,0,0.15);
+	box-shadow:-2px 2px 3px rgba(0,0,0,0.15);}
+	
+/* components input and button */
+.ng-input-button-container {white-space:nowrap;}
+.ng-input-button-container .ng-button {padding:0px 2px;
+	margin:0px;
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-left-width:0px;
+	vertical-align:top;
+	font-size:medium;}
+	
+.ng-input-button-container input {vertical-align:top;}
+	
+.ng-input-button-container .rtl.ng-button {-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-right-width:0px;
+	
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-left-width:1px;}
+	
+.ng-input-button-container input {margin:0px;}
+	
+/* components style */
+.ng-comp-main-div {border:solid #cccccc 1px;
+		background:#ffffff;
+		display:inline-block;
+		-moz-box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+		-webkit-box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+		box-shadow: 3px 3px 2px rgba(0,0,0,.3);}
+		
+.rtl.ng-comp-main-div {-moz-box-shadow: -3px 3px 2px rgba(0,0,0,.3);
+		-webkit-box-shadow: -3px 3px 2px rgba(0,0,0,.3);
+		box-shadow: -3px 3px 2px rgba(0,0,0,.3);}
+		
+.ng-comp-visible .ng-comp-main-div {box-shadow:none;}
+
+.ng-comp-hidden {display:none;
+	position:absolute;
+	top:auto; left:auto;
+	z-index:100000;}
+	
+.ng-comp-iframe-shim {z-index:10000;
+	position:absolute;
+	width:0px;
+	height:0px;
+	display:none;
+	border:none;}
+	
+.ng-comp-disabled * {color:#666666; cursor:auto;}
+	
+/*1.2.1*/
+.ng-comp-input-holder, .ng-comp-close-button {display:none;}
+/*1.2.1*/
+
+/* toolbar */
+.ng-toolbar {background:#eeeeee;
+	padding:5px;
+	border:solid #9ca3be 1px;
+	position:relative;}
+
+.ng-toolbar .ng-button {font-size:smaller;
+	padding:3px;}
+
+
+/*1.2.2*/
+.ng_left_arrow {background:url(../images/arrows/black_left.png) no-repeat center center;
+	width:9px;
+	height:9px;}
+
+.ng_right_arrow {background:url(../images/arrows/black_right.png) no-repeat center center;
+	width:9px;
+	height:9px;}
+
+.ng_up_arrow {background:url(../images/arrows/black_up.png) no-repeat center center;
+	width:9px;
+	height:9px;}
+	
+.ng_down_arrow {background:url(../images/arrows/black_down.png) no-repeat center center;
+	width:9px;
+	height:9px;}
+	
+.ng_switch_arrow {background:url(../images/arrows/black_switch.png) no-repeat center center;
+	width:11px;
+	height:11px;}
+	
+.ng_rotate_arrow {background:url(../images/arrows/black_rotate.png) no-repeat center center;
+	width:11px;
+	height:11px;}
+	
+.ng_accordion_content {overflow:hidden;
+	padding:0px;
+	margin:0px;
+	opacity:1;
+	-webkit-transition:height 0.5s, width 0.5s, opacity 0.5s;
+	-moz-transition:height 0.5s, width 0.5s, opacity 0.5s;
+	transition:height 0.5s, width 0.5s, opacity 0.5s;}
+	
+/* add some space to allow dropping in empty accordian */
+.ng_sortable_placeholder {position:relative;
+	outline:dashed #dedfe8 1px;
+	opacity:0.35;}
+	
+.ng_sortable_tools {border:dashed #dedfe8 1px;
+	position:absolute;
+	display:none;
+	overflow:hidden;
+	z-index:1000000;}
+	
+.ng_sortable_tools, .ng_sortable_tools ul, .ng_sortable_tools li {border:none;
+	padding:0px;
+	margin:0px;
+	outline:none;
+	width:auto;}
+	
+.ng_sortable_move_buttons, .ng_sortable_indent_buttons {font-size:1px;
+	line-height:1px;}
+	
+.ng_sortable_sub {}
+
+.ng_progress_container.ng_progress_bar {position:relative;
+	width:100%;
+	height:20px;
+	max-height:20px;
+	overflow:hidden;}
+
+.ng_progress_bar .ng_progress_under {display:block;
+	position:absolute;
+	overflow:hidden;
+	background:#dedfe8;
+	color:#000000;
+	top:0px;
+	left:0px;
+	bottom:0px;
+	right:0px;
+	padding:0px;
+	margin:0px;}
+	
+.ng_progress_bar .ng_progress_over, .ng_progress_bar .ng_progress_indeterminate {display:block;
+	position:absolute;
+	overflow:hidden;
+	background:#b2aee9;
+	color:#000000;
+	top:0px;
+	left:0px;
+	bottom:0px;
+	padding:0px;
+	margin:0px;
+	-webkit-transition:width 0.2s, color 0.2s;
+	-moz-transition:width 0.2s, color 0.2s;
+	transition:width 0.2s, color 0.2s;}
+	
+.ng_progress_bar.rtl .ng_progress_over {left:auto;
+	right:0px;}
+	
+.ng_progress_bar .ng_progress_indeterminate {right:0px;
+	background:url(../images/progressbar/bar_indeterminate_bg.png) 0px center repeat-x #b2aee9;}
+	
+.ng_progress_bar.rtl .ng_progress_indeterminate {background-image:url(../images/progressbar/rtl_bar_indeterminate_bg.png);}
+
+.ng_progress_bar .ng_progress_text {position:absolute;
+	color:inherit;
+	padding:1px;
+	right:2%;
+	font-size:small;}
+	
+.ng_progress_bar.rtl .ng_progress_text {right:auto;
+	left:2%;}
+
+.ng_progress_container.ng_progress_radial {position:relative;
+	width:200px;
+	height:200px;
+	margin:auto;}
+	
+.ng_progress_radial svg {width:100%;
+	height:100%;}
+
+.ng_progress_radial .ng_progress_under {fill:none;
+	stroke:#dedfe8;
+	stroke-width:7%;}
+	
+.ng_progress_radial .ng_progress_over {fill:none;
+	stroke:#b2aee9;
+	stroke-width:7%;}
+	
+.ng_progress_radial .ng_progress_indeterminate {fill:none;
+	stroke:#b2aee9;
+	stroke-width:5%;}
+	
+.ng_progress_radial .ng_progress_indeterminate_text, .ng_progress_radial .ng_progress_under_text {fill:#9ea0b1;}
+.ng_progress_radial .ng_progress_over_text{fill:#b2aee9;}
+
+.ng_progress_hide_text .ng_progress_text {display:none;}
+
+.ng_progress_body_overlap {background:rgba(255, 255, 255, 0.7);
+	display:none;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	position:absolute;
+	z-index:1000000;}
+	
+.ng_progress_container.ng_progress_body {z-index:10000000;}
+
+.ng_accordion_holder {min-height:10px;}
+	
+.ng_accordion_closed {opacity:0;
+	height:0px;}
+
+.ng_accordion_limit_height {overflow:auto;}
+.ng_accordion_limit_height.ng_accordion_closed {overflow:hidden;}
+
+.ng_accordion_iframe, .ng_accordion_object {width:100%;
+	height:100%;
+	border:none;
+	background:none;
+	padding:0px;
+	margin:0px auto;
+	display:block;}
+
+	
+.ng_accordion_img, .ng_accordion_video {display:block;
+	margin:auto;}
+	
+.ng_accordion_fixed_iframe {height:300px;}
+	
+.ng_accordion_image, .ng_accordion_object {display:block;
+	margin:auto;}
+	
+.ng_accordion_link {display:block;
+	text-align:inherit;
+	border-radius:0px;
+	border-top-width:0px;}
+	
+.ng_accordion_link:first-child, .ng_accordion_link.ng_accordion_after_open {border-top-width:1px;}
+
+.ng_accordion_before .ng_accordion_link, .ng_accordion_top .ng_accordion_link {border-top-width:1px;
+	border-bottom-width:0px;}
+
+.ng_accordion_before .ng_accordion_link:last-child,
+.ng_accordion_before .ng_accordion_link.ng_accordion_before_open,
+.ng_accordion_top .ng_accordion_link:last-child,
+.ng_accordion_top .ng_accordion_link.ng_accordion_before_open {border-bottom-width:1px;}
+
+.ng_accordion_remove_button {position:absolute;
+	vertical-align:middle;
+	top:0px;
+	bottom:0px;
+	right:5px;
+	display:none;}
+	
+.ng_accordion_link:hover .ng_accordion_remove_button.ng_accordion_visible,
+.ng_accordion_link.checked .ng_accordion_remove_button.ng_accordion_visible {display:block;}
+
+.disabled.ng_accordion_link:hover .ng_accordion_remove_button.ng_accordion_visible,
+.disabled.ng_accordion_link.checked .ng_accordion_remove_button.ng_accordion_visible {display:none;}
+
+/*1.2.2*/
+	
+/*1.2.1*/
+@media screen and (max-width:480px){
+	body.ng-comp-open {overflow:hidden;}
+	.ng-comp-input-holder {display:block;
+		text-align:center;
+		position:relative;
+		margin-bottom:1px;}
+		
+	.ng-comp-close-button {position:absolute;
+		display:block;
+		top:auto;
+		left:auto;
+		background:#2d89ef;
+		color:#ffffff;
+		font-size:medium;
+		font-weight:bold;
+		cursor:pointer;
+		text-align:center;
+		-webkit-border-radius:2px;
+		-moz-border-radius:2px;
+		border-radius:2px;
+		border:solid rgba(255, 255, 255, 0.35) 1px;
+		top:-26px;
+		right:0px;
+		padding:0px 10px;}
+		
+	.ng-comp-visible .ng-comp-close-button {display:none;}
+		
+	.ng-comp-input-holder input, .ng-comp-input-holder select {padding:2%;
+		width:95%;
+		background:#ffffff;
+		border:solid #3399ff 1px;
+		outline:none;}
+		
+	.ng-comp-hidden {background:rgba(26, 26, 26, 0.9);
+		overflow:auto;}
+}
+/*1.2.1*/

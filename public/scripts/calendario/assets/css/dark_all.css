@@ -1,0 +1,158 @@
+/*
+ * NoGray JavaScript Library
+ *
+ * Copyright (c), All right reserved
+ * Gazing Design - http://www.NoGray.com
+ * http://www.nogray.com/license.php
+ */
+
+/*
+ * This file is deprecated and is only used
+ * in older browsers, use dark_ui.css 
+ * to  modify the CSS
+ */
+ 
+.ng-button {display:inline-block;
+	cursor:pointer;
+	border:solid 1px;
+	border-left:none;
+	border-right:none;
+	background:url(../images/buttons/bg_white.png) repeat-x top left;
+	text-align:center;
+	vertical-align:middle;}
+	
+.ng-button a {color:inherit;
+	text-decoration:inherit;
+	outline:none;
+	cursor:inherit;}
+	
+.ng-button-table, .ng-button-icon-td, .ng-button-arrow-td, .ng-button-text-td {	padding:0px !important;
+	margin:0px !important;
+	border:none !important;
+	background:none !important;
+	vertical-align:middle !important;}
+	
+.ng-button-table {width:100% !important;
+	*width:auto !important;
+	_width:auto !important;
+	border-collapse:collapse !important;}
+
+.ng-button-icon-td {text-align:left !important;
+	border:none !important;
+	margin:0px !important;
+	padding:0px !important;
+	font-size:xx-small !important;}
+	
+.rtl .ng-button-icon-td {text-align:right !important;}
+.ng-button-icon-img {display:block;}
+
+.ng-button-arrow-td {text-align:right !important;
+	font-size:xx-small !important;}
+	
+.rtl .ng-button-arrow-td {text-align:left !important;}
+.ng-button-arrow-img {margin-left:3px;
+	display:block;}
+.rtl .ng-button-arrow-img {margin-left:0px; margin-right:3px;}
+
+.ng-button-text-td {text-align:center !important;}
+
+.ng-button-gloss {background-image:url(../images/buttons/bg_white_gloss.png);}
+.ng-button-down {background-image: url(../images/buttons/bg_black_down.png);}
+
+.ng-button-disabled {cursor:default;}
+		
+.ng-button-holder {
+	border:solid 1px;
+	border-top:none;
+	border-bottom:none;
+	margin:0px -1px;
+	background:url(../images/buttons/bg_black.png) repeat-x bottom left;}
+	
+.ng-button-holder-down {background-image: url(../images/buttons/bg_white_down.png);}
+.ng-button-holder-gloss-down {background-image: url(../images/buttons/bg_white_gloss_down.png);}
+
+.ng-button-bevel {
+	border:solid 1px;
+	padding:0px 3px 2px 3px;
+}
+
+/* componenet style */
+/* componenet style */
+/*1.1.4*/
+.ng-comp-main-div {border:solid #303237 1px;
+		background:#22232d;
+		color:#ffffff;
+		display:inline-block;
+		-moz-box-shadow: 3px 3px 2px rgba(255,255,255,.3);
+		-webkit-box-shadow: 3px 3px 2px rgba(255,255,255,.3);
+		box-shadow: 3px 3px 2px rgba(255,255,255,.3);}
+		
+.ng-comp-visible .ng-comp-main-div {box-shadow:none;}
+/*1.1.4*/
+
+/*1.2.1*/
+.ng-comp-input-holder, .ng-comp-close-button {display:none;}
+/*1.2.1*/
+
+/* for browsers that doesn't support box shadow, we revert to shadows with images */
+/* from 1.1.1 */
+.ng-comp-table {border-collapse:collapse;}
+	
+.ng-comp-main-td {border:solid #303237 1px;
+		background:#22232d;
+		color:#ffffff;}
+
+		
+.ng-comp-right-shadow, .ng-comp-left-shadow {background:url(../images/glow/right.png) repeat-y top left;
+	font-size:1px;
+	width:4px;}
+
+.ng-comp-left-shadow {background:url(../images/glow/left.png) repeat-y top left;}
+
+	
+.ng-comp-bottom-shadow {background:url(../images/glow/bottom.png) repeat-x top left;
+	font-size:1px;
+	height:5px;}
+	
+.ng-comp-bottom-right-shadow, .ng-comp-bottom-left-shadow {background:url(../images/glow/bottom_right_crn.png) no-repeat top left;
+	font-size:1px;
+	height:5px;
+	width:4px;}
+.ng-comp-bottom-left-shadow {background:url(../images/glow/bottom_left_crn.png) no-repeat top left;}
+
+.ng-comp-hidden {display:none;
+	position:absolute;
+	top:auto; left:auto;
+	z-index:100000;}
+	
+.ng-comp-iframe-shim {z-index:10000;
+	position:absolute;
+	width:0px;
+	height:0px;
+	display:none;
+	border:none;}
+
+.ng-comp-visible .ng-comp-right-shadow, .ng-comp-visible .ng-comp-left-shadow, .ng-comp-visible .ng-comp-bottom-shadow, .ng-comp-visible .ng-comp-bottom-right-shadow, .ng-comp-visible .ng-comp-bottom-left-shadow {display:none;}
+
+/* .ng_input_button_table is a legacy class */
+.ng-input-button-table, .ng_input_button_table {border-collapse:collapse;
+	border-spacing:0px;
+	vertical-align:middle;
+	display:inline;}
+
+.ng-input-button-table input, .ng-input-button-table select
+.ng_input_button_table input, .ng_input_button_table select {margin:0px;
+	outline:none;}
+	
+.ng-input-button-table .ng-button {font-size:small;}
+
+/* from 1.1.2 */
+.ng-comp-disabled * {color:#dadada; cursor:auto;}
+
+/* from 1.1.3 */
+.ng-3-rows-button .ng-button-icon-td, .ng-3-rows-button .ng-button-arrow-td,
+.ng-2-rows-1-2-button .ng-button-icon-td, .ng-2-rows-1-2-button .ng-button-arrow-td,
+.ng-2-rows-2-1-button .ng-button-icon-td, .ng-2-rows-2-1-button .ng-button-arrow-td {
+	text-align:center !important;
+}
+.ng-3-rows-button img, .ng-2-rows-1-2-button img, .ng-2-rows-2-1-button img {margin:3px auto !important;}

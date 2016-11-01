@@ -1,0 +1,145 @@
+/*
+ * NoGray JavaScript Library
+ *
+ * Copyright (c), All right reserved
+ * Gazing Design - http://www.NoGray.com
+ * http://www.nogray.com/license.php
+ */
+
+@import 'icons_common.css';
+	
+/* 128x128 icons */
+.ng-icon.s128 {background-image:url(../images/icons/standard_128.png);
+	width:128px; height:128px;}
+
+/* 96x96 icons */
+.ng-icon.s96 {background-image:url(../images/icons/standard_96.png);
+	width:96px; height:96px;}
+
+/* 64x64 icons */
+.ng-icon.s64 {background-image:url(../images/icons/standard_64.png);
+	width:64px; height:64px;}
+
+/* 48x48 icons */
+.ng-icon.s48 {background-image:url(../images/icons/standard_48.png);
+	width:48px; height:48px;}
+
+/* 32x32 icons */
+.ng-icon.s32 {background-image:url(../images/icons/standard_32.png);
+	width:32px; height:32px;}
+
+/* 24x24 icons */
+.ng-icon.s24 {background-image:url(../images/icons/standard_24.png);
+	width:24px; height:24px;}
+
+/* 16x16 icons */
+.ng-icon.s16 {background-image:url(../images/icons/standard_16.png);
+	width:16px; height:16px;}
+
+/* 12x12 icons */
+.ng-icon.s12 {background-image:url(../images/icons/standard_12.png);
+	width:12px; height:12px;}
+
+/* 10x10 icons */
+.ng-icon.s10 {background-image:url(../images/icons/standard_10.png);
+	width:10px; height:10px;}
+
+/* 8x8 icons */
+.ng-icon.s8 {background-image:url(../images/icons/standard_8.png);
+	width:8px; height:8px;}
+	
+/* HD display (1.5 pixel ratio) all icons can have retina display except for size 128,
+   those can have be remade from the PSD file */
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2),
+	only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+	/* 96x96 icons */
+	.ng-icon.s96 {background-image:url(../images/icons/standard_128.png);
+		background-size:480px 863px;
+		width:96px; height:96px;}
+	
+	/* 64x64 icons */
+	.ng-icon.s64 {background-image:url(../images/icons/standard_96.png);
+		background-size:320px 576px;
+		width:64px; height:64px;}
+	
+	/* 48x48 icons */
+	.ng-icon.s48 {background-image:url(../images/icons/standard_64.png);
+		background-size:240px 432px;
+		width:48px; height:48px;}
+	
+	/* 32x32 icons */
+	.ng-icon.s32 {background-image:url(../images/icons/standard_48.png);
+		background-size:160px 288px;
+		width:32px; height:32px;}
+	
+	/* 24x24 icons */
+	.ng-icon.s24 {background-image:url(../images/icons/standard_32.png);
+		background-size:120px 216px;
+		width:24px; height:24px;}
+	
+	/* 16x16 icons */
+	.ng-icon.s16 {background-image:url(../images/icons/standard_24.png);
+		background-size:80px 144px;
+		width:16px; height:16px;}
+	
+	/* 12x12 icons */
+	.ng-icon.s12 {background-image:url(../images/icons/standard_16.png);
+		background-size:60px 108px;
+		width:12px; height:12px;}
+	
+	/* 10x10 icons */
+	.ng-icon.s10 {background-image:url(../images/icons/standard_16.png);
+		background-size:50px 90px;
+		width:10px; height:10px;}
+	
+	/* 8x8 icons */
+	.ng-icon.s8 {background-image:url(../images/icons/standard_12.png);
+		background-size:40px 72px;
+		width:8px; height:8px;}
+	
+}
+
+/* retina display, all icons can have retina display except for sizes 96 and 128,
+   those can have be remade from the PSD file */	
+@media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1),
+	only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {	
+	/* 64x64 icons */
+	.ng-icon.s64 {background-image:url(../images/icons/standard_128.png);
+		background-size:320px 576px;
+		width:64px; height:64px;}
+	
+	/* 48x48 icons */
+	.ng-icon.s48 {background-image:url(../images/icons/standard_96.png);
+		background-size:240px 432px;
+		width:48px; height:48px;}
+	
+	/* 32x32 icons */
+	.ng-icon.s32 {background-image:url(../images/icons/standard_64.png);
+		background-size:160px 288px;
+		width:32px; height:32px;}
+	
+	/* 24x24 icons */
+	.ng-icon.s24 {background-image:url(../images/icons/standard_48.png);
+		background-size:120px 216px;
+		width:24px; height:24px;}
+	
+	/* 16x16 icons */
+	.ng-icon.s16 {background-image:url(../images/icons/standard_32.png);
+		background-size:80px 144px;
+		width:16px; height:16px;}
+	
+	/* 12x12 icons */
+	.ng-icon.s12 {background-image:url(../images/icons/standard_24.png);
+		background-size:60px 108px;
+		width:12px; height:12px;}
+	
+	/* 10x10 icons */
+	.ng-icon.s10 {background-image:url(../images/icons/standard_24.png);
+		background-size:50px 90px;
+		width:10px; height:10px;}
+	
+	/* 8x8 icons */
+	.ng-icon.s8 {background-image:url(../images/icons/standard_16.png);
+		background-size:40px 72px;
+		width:8px; height:8px;}
+}
