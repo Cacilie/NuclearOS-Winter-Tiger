@@ -1,0 +1,102 @@
+/*
+ * NoGray JavaScript Library
+ *
+ * Copyright (c), All right reserved
+ * Gazing Design - http://www.NoGray.com
+ * http://www.nogray.com/license.php
+ */
+ 
+.ng_cal_cal_frame_table .ng-button {font-size:small;}
+.ng_cal_cal_frame_table .ng-button-bevel {height:15px; overflow:hidden;}
+
+.ng_cal_right_month_td {text-align:right;}
+.ng_cal_left_month_td {text-align:left;}
+
+.ng_cal_today {}
+
+.ng_cal_months_group_table {width:100%;
+	border-collapse:separate;}
+.ng_cal_month_group_td {vertical-align:top;
+	border:solid #bababa 1px;}
+
+.ng_cal_month_table {border-collapse:separate;}
+.ng_cal_month_table th {text-align:center;}
+.ng_cal_month_table *, .ng_cal_years_select_td * {font-size:small;}
+.ng_cal_years_select_td {text-align:center;
+	background:#f3f3f3;}
+	
+.ng_cal_day_name_td {padding:2px 5px;}
+	
+.ng_cal_dates_tr td {padding:2px;
+	white-space:nowrap;}
+
+.ng_cal_out_of_range {color:#999999;
+	text-decoration:line-through;}
+	
+.ng_cal_weekend, .ng_cal_day_off, .ng_cal_range_off {color:#666666;}
+
+.ng_cal_other_month {color:#999999;
+	background:#ececf0;
+	border:solid #ececf0 1px;
+	cursor:pointer;}
+	
+.ng_cal_date_off {color:#666666;}
+
+.ng_cal_selected_date, .ng_cal_selected_date.ng_cal_selectable:hover {background:#2d89ef;
+	color:#ffffff;
+	padding:1px;
+	font-weight:bold;}
+	
+.ng_cal_selectable {cursor:pointer;
+	border:solid transparent 1px;}
+
+.ng_cal_selectable:hover {background:#c6dbf1;
+	font-weight:bold;
+	border:dotted #cccccc 1px;}
+	
+.ng_cal_bottom_bar {text-align:right;}
+.ng_cal_bottom_bar * {font-size:small;}
+	
+/* deprecated as of version 1.2.0*/
+.ng_cal_date_list_td {font-size:small;
+	border:solid #f3f3f3 1px;
+	cursor:pointer;}
+
+.ng_cal_date_list_remove_td {background:url(../images/remove_icon.gif) no-repeat center center;
+	cursor:pointer;
+	border:solid #f3f3f3 1px;
+	width:15px;
+	height:15px;}
+/* deprecated as of version 1.2.0*/
+	
+/*1.1.2*/
+.ng-comp-disabled .ng_cal_selectable:hover {border:solid transparent 1px;
+	background:none;}
+.ng-comp-disabled .ng_cal_selected_date.ng_cal_selectable:hover {background:#2d89ef;}
+/*1.1.2*/
+
+/*1.2.0*/
+.ng_cal_date_list_holder {display:inline-block;
+	padding:3px;
+	font-size:smaller;
+	border:solid #f3f3f3 1px;
+	margin-right:10px;
+	margin-bottom:10px;}
+	
+.ng_cal_date_list {cursor:pointer;}
+
+.ng_cal_date_list_remove {background:url(../images/remove_icon.gif) no-repeat center center;
+	cursor:pointer;
+	width:15px;
+	min-height:15px;
+	display:inline-block;
+	margin-left:5px;
+	border-left:none;}
+/*1.2.0*/
+
+/*1.2.1*/
+@media screen and (max-width:480px){
+	.ng_cal_dates_tr td {padding:5px;}
+}
+
+/*1.2.1*/

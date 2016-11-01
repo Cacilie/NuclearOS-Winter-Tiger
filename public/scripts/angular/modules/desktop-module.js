@@ -53,8 +53,8 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
 
 
   $scope.autorun = function(){  //this function execute the process that check the files status
- 
-    setInterval(function(){  
+
+    setInterval(function(){
 
     $http.post('/getMyFolders',{})  // here we get all the folders which status is 1
     .success(function(data){
@@ -97,7 +97,7 @@ desktopapp.controller('modalController',['$scope','$http',function($scope,$http)
         Materialize.toast('No tiene permisos para restaurar.', 4250) // if the server return != 0, it means that you dont have the level to restore
       }
     })
-  } 
+  }
 
 /*
 restaruarTrashFile gets the id as a parameter and send it to the server in order to restore a certain file
@@ -161,7 +161,7 @@ In order to crear a new folder it is necessary the name of the folder.
       if(data == 0)   //if the server returns 0, the folder was successful created
       {
         Materialize.toast('Carpeta creada.', 4250)
-      }else{                                 
+      }else{
         Materialize.toast('La carpeta ya existe.', 4250)
       }
 
@@ -177,7 +177,7 @@ In order to crear a new folder it is necessary the name of the folder.
   {
     $http.post('/createNewFile',$scope.nuevoArchivo) // here the name is sent to the server
     .success(function(data){
-      if(data == 1) 
+      if(data == 1)
       {
         Materialize.toast('El archivo ya existe', 4250)
       }
@@ -299,7 +299,7 @@ In order to crear a new folder it is necessary the name of the folder.
   }
 
 /*
-verificarDerechos is used to verify if an user has the  privileges to modify the permissions 
+verificarDerechos is used to verify if an user has the  privileges to modify the permissions
 of others users.
 */
 
@@ -326,3 +326,9 @@ of others users.
   $scope.verificarDerechos();
 
 }]);
+
+
+function Funcion(){
+	var nl_cal = new ng.Calendar({visible: true, object: 'nl_cal_div'});
+
+}

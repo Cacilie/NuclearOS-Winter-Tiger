@@ -7,7 +7,8 @@
       <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="materialize/css/estilos.css"  media="screen,projection"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-
+        <script  type="text/javascript" src="scripts\calendario\ng_all.js"></script>
+        <script  type="text/javascript" src="scripts\calendario\components\calendar.js"></script>
         <script src="scripts/angular/angular.min.js" charset="utf-8"></script>
         <script src="scripts/angular/modules/desktop-module.js" charset="utf-8"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -91,6 +92,11 @@
               </table>
             </div>
 
+          </div>
+          <div class="row">
+            <ul class=" ">
+              <li><a class="waves-effect fecha white-text modal-trigger" href="#modalCalendar" onclick="Funcion()">Calendario</a></li>
+            </ul>
           </div>
         </div>
         <div class="footer-copyright pink-darken-3">
@@ -355,6 +361,29 @@ i.icon-pink {
 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
 </div>
 </div>
+</div>
+
+<!--modal calendar-->
+<div id="modalCalendar" class="modal modal-fixed-footer">
+  <div class="modal-header">
+    <div class="modal-content">
+      <div class="row valign-wrapper">
+        <div class="col 2 valign">
+          <i class="material-icons pink-text text-darken-4"></i>
+        </div>
+        <div class="col 10 valign">
+          <h5>Calendario</h5>
+        </div>
+      </div>
+      <div id="nl_cal_div">
+
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
+    </div>
+  </div>
 </div>
 <!--contral -->
 <div id="modal4" class="modal modal-fixed-footer">
