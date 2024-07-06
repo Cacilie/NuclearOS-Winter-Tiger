@@ -1,4 +1,4 @@
-# NuclearOS 0.1 Winter Tiger 
+# NuclearOS 0.1 Winter Tiger - no-maintenance-intended
 
 ## A Web Operative System
 
